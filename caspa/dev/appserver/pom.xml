@@ -4,12 +4,12 @@
 
     <parent>
         <groupId>foundation.softwaredesign</groupId>
-        <artifactId>dev</artifactId>
+        <artifactId>caspa-dev</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>foundation.softwaredesign</groupId>
-    <artifactId>appserver</artifactId>
+    <artifactId>caspa-dev-appserver</artifactId>
 
     <name>${project.artifactId} (caspa app server)</name>
 
