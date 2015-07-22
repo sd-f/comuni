@@ -39,7 +39,7 @@
 
     <modules>
         <!-- Preconfigured App Server -->
-        <module>dev</module>
+        <module>caspa-dev</module>
 
     </modules>
 

@@ -9,8 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>foundation.softwaredesign.caspa</groupId>
-    <artifactId>dev</artifactId>
+    <groupId>foundation.softwaredesign</groupId>
+    <artifactId>caspa-dev</artifactId>
 
     <packaging>pom</packaging>
 
