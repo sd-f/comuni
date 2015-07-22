@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>foundation.softwaredesign</groupId>
+    <artifactId>caspa</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <url>https://softwaredesign.foundation/caco/</url>
+
+    <name>${project.artifactId} (CampusCommunity)</name>
+
+    <description>CampusCommunity Master Module</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <caco.dev.domain>softwaredesign.foundation</caco.dev.domain>
+
+        <!-- java version -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- distribution -->
+        <caco.nexus.repo.url>https://softwaredesign.foundation/nexus/content/repositories</caco.nexus.repo.url>
+
+        <!-- caco version -->
+        <caco.version>1.0-SNAPSHOT</caco.version>
+
+        <!-- app server -->
+        <tomee.version>7.0.0-SNAPSHOT</tomee.version>
+        <tomee.classifier>webprofile</tomee.classifier>
+
+        <!-- java ee -->
+        <ee.version>7.0</ee.version>
+    </properties>
+
+    <modules>
+        <!-- Preconfigured App Server -->
+        <module>dev</module>
+
+    </modules>
+
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>sd.f-releases</id>
+            <name>softwaredesign.foundation Releases</name>
+            <url>${caco.nexus.repo.url}/sd.f-releases</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>sd.f-snapshots</id>
+            <name>softwaredesign.foundation Snapshots</name>
+            <url>${caco.nexus.repo.url}/sd.f-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

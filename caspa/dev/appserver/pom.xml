@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>foundation.softwaredesign</groupId>
+        <artifactId>dev</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>foundation.softwaredesign</groupId>
+    <artifactId>appserver</artifactId>
+
+    <name>${project.artifactId} (caspa app server)</name>
+
+    <description>plain app server for caspa deployment</description>
+
+    <packaging>war</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${ee.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Attention new groupId -->
+                <groupId>org.apache.tomee.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>${tomee.version}</version>
+                <configuration>
+                    <tomeeVersion>${tomee.version}</tomeeVersion>
+                    <tomeeClassifier>${tomee.classifier}</tomeeClassifier>
+                    <tomeeHttpPort>8021</tomeeHttpPort>
+                    <tomeeAjpPort>8030</tomeeAjpPort>
+                    <!--                    <tomeeHttpsPort>8022</tomeeHttpsPort>-->
+                    <tomeeShutdownPort>8031</tomeeShutdownPort>
+                    <removeDefaultWebapps>true</removeDefaultWebapps>
+                    <removeTomeeWebapp>true</removeTomeeWebapp>
+                    <context>ping</context>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Snapshot Repo from Apache -->
+    <repositories>
+        <repository>
+            <id>Apache Staging Snapshots</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>https://repository.apache.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Apache Staging Snapshots Plugins</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <name>Apache Snapshot Repository</name>
+            <url>https://repository.apache.org/content/repositories/snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

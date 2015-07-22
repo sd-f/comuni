@@ -1,0 +1,33 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven
+log/
+target/
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Netbeans Configuration (actived again, sometimes useful, watch for absolute paths when commiting)
+nb-configuration.xml
+nbactions.xml
