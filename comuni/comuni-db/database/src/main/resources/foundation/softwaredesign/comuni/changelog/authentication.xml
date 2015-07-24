@@ -19,19 +19,19 @@
                dbms="postgresql">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">
-                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='authentication' )
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_authentication' )
                 UNION
-                SELECT 0 WHERE EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='authentication' )
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_authentication' )
             </sqlCheck>
         </preConditions>
-        <comment>creating role for user authentication</comment>
+        <comment>creating role for user comuni_authentication</comment>
         <sql>
-            CREATE ROLE authentication LOGIN
+            CREATE ROLE comuni_authentication LOGIN
             PASSWORD '${comuni.env.db.password}'
             NOSUPERUSER INHERIT NOCREATEDB CREATEROLE REPLICATION;
         </sql>
         <rollback>
-            <sql>DROP ROLE "authentication";</sql>
+            <sql>DROP ROLE "comuni_authentication";</sql>
         </rollback>
     </changeSet>
 
@@ -40,31 +40,31 @@
                dbms="postgresql">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">
-                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='authentication' )
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='comuni_authentication' )
                 UNION
-                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='authentication' )
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='comuni_authentication' )
             </sqlCheck>
         </preConditions>
-        <comment>creating schema authentication</comment>
+        <comment>creating schema comuni_authentication</comment>
         <sql>
-            CREATE SCHEMA AUTHORIZATION authentication;
+            CREATE SCHEMA AUTHORIZATION comuni_authentication
         </sql>
         <rollback>
-            <sql>DROP SCHEMA "authentication";</sql>
+            <sql>DROP SCHEMA "comuni_authentication";</sql>
         </rollback>
     </changeSet>
 
     <changeSet id="authentication_alter_default_priv_in_schema_to_schema"
                author="Lucas Reeh"
                dbms="postgresql">
-        <comment>schema table grants for authentication</comment>
+        <comment>schema table grants for comuni_authentication</comment>
         <sql>
             ALTER DEFAULT PRIVILEGES
-            IN SCHEMA authentication
-            GRANT ALL ON TABLES TO authentication;
+            IN SCHEMA comuni_authentication
+            GRANT ALL ON TABLES TO comuni_authentication
         </sql>
         <rollback>
-            REVOKE ALL ON ALL TABLES IN SCHEMA authentication FROM authentication;
+            REVOKE ALL ON ALL TABLES IN SCHEMA comuni_authentication FROM comuni_authentication
         </rollback>
     </changeSet>
 
