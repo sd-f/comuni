@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>foundation.softwaredesign</groupId>
@@ -9,25 +11,28 @@
 
     <packaging>pom</packaging>
 
-    <url>https://softwaredesign.foundation/caco/</url>
+    <url>https://softwaredesign.foundation/comuni/</url>
 
     <name>${project.artifactId} (CampusCommunity)</name>
 
     <description>CampusCommunity Master Module</description>
 
     <properties>
+        <!-- path to root folder -->
+        <path.to.root></path.to.root>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <caco.dev.domain>softwaredesign.foundation</caco.dev.domain>
+        <comuni.dev.domain>softwaredesign.foundation</comuni.dev.domain>
 
         <!-- java version -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- distribution -->
-        <caco.nexus.repo.url>https://softwaredesign.foundation/nexus/content/repositories</caco.nexus.repo.url>
+        <comuni.nexus.repo.url>https://softwaredesign.foundation/nexus/content/repositories</comuni.nexus.repo.url>
 
-        <!-- caco version -->
-        <caco.version>1.0-SNAPSHOT</caco.version>
+        <!-- comuni version -->
+        <comuni.version>1.0-SNAPSHOT</comuni.version>
 
         <!-- app server -->
         <tomee.version>7.0.0-SNAPSHOT</tomee.version>
@@ -35,12 +40,20 @@
 
         <!-- java ee -->
         <ee.version>7.0</ee.version>
+
+        <!-- liquibase -->
+        <liquibase.version>3.4.0</liquibase.version>
+
+        <!-- logging -->
+        <slf4j.version>1.6.4</slf4j.version>
+        <logback.version>1.0.1</logback.version>
     </properties>
 
     <modules>
-        <!-- Preconfigured App Server -->
+        <!-- Dev Tools -->
         <module>comuni-dev</module>
-
+        <!-- database -->
+        <module>comuni-db</module>
     </modules>
 
     <distributionManagement>
@@ -48,14 +61,107 @@
             <uniqueVersion>false</uniqueVersion>
             <id>sd.f-releases</id>
             <name>softwaredesign.foundation Releases</name>
-            <url>${caco.nexus.repo.url}/sd.f-releases</url>
+            <url>${comuni.nexus.repo.url}/sd.f-releases</url>
         </repository>
         <snapshotRepository>
             <uniqueVersion>true</uniqueVersion>
             <id>sd.f-snapshots</id>
             <name>softwaredesign.foundation Snapshots</name>
-            <url>${caco.nexus.repo.url}/sd.f-snapshots</url>
+            <url>${comuni.nexus.repo.url}/sd.f-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>9.1-901-1.jdbc4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>${liquibase.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mattbertolini</groupId>
+                <artifactId>liquibase-slf4j</artifactId>
+                <version>1.2.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- maven core plugins -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.6.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <compilerVersion>1.8</compilerVersion>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.18.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>${liquibase.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 
 </project>
