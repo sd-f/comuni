@@ -28,6 +28,6 @@ target/
 # Mac
 .DS_Store
 
-# Netbeans Configuration (actived again, sometimes useful, watch for absolute paths when commiting)
+# Netbeans
 nb-configuration.xml
 nbactions.xml

@@ -4,16 +4,16 @@
 
     <parent>
         <groupId>foundation.softwaredesign</groupId>
-        <artifactId>caspa-dev</artifactId>
+        <artifactId>comuni-dev</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>foundation.softwaredesign.caspa-dev</groupId>
+    <groupId>foundation.softwaredesign.comuni-dev</groupId>
     <artifactId>appserver</artifactId>
 
-    <name>${project.artifactId} (caspa app server)</name>
+    <name>${project.artifactId} (comuni app server)</name>
 
-    <description>plain app server for caspa deployment</description>
+    <description>plain app server for comuni deployment</description>
 
     <packaging>war</packaging>
 

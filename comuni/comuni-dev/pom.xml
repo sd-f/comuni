@@ -5,18 +5,18 @@
 
     <parent>
         <groupId>foundation.softwaredesign</groupId>
-        <artifactId>caspa</artifactId>
+        <artifactId>comuni</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>foundation.softwaredesign</groupId>
-    <artifactId>caspa-dev</artifactId>
+    <artifactId>comuni-dev</artifactId>
 
     <packaging>pom</packaging>
 
     <name>${project.artifactId} (Development Tools)</name>
 
-    <description>development tools to help working with caspa</description>
+    <description>development tools to help working with comuni</description>
 
     <modules>
         <!-- Preconfigured App Server -->

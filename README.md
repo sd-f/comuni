@@ -1,5 +1,4 @@
-# caspa
-CampusSpace
+# comuni
 
 Community platform for students
 
@@ -10,4 +9,4 @@ Community platform for students
 Build-Pipeline will be triggered on push on development branch!
 
 # Licence
-CampusCommunity is licenced under the under the [WTFPL license](http://www.wtfpl.net/).
+comuni is licenced under the under the [WTFPL license](http://www.wtfpl.net/).

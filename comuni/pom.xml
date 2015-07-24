@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>foundation.softwaredesign</groupId>
-    <artifactId>caspa</artifactId>
+    <artifactId>comuni</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
@@ -39,7 +39,7 @@
 
     <modules>
         <!-- Preconfigured App Server -->
-        <module>caspa-dev</module>
+        <module>comuni-dev</module>
 
     </modules>
 
