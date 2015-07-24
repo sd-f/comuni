@@ -40,17 +40,17 @@
                dbms="postgresql">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">
-                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='comuni_authentication' )
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='authentication' )
                 UNION
-                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='comuni_authentication' )
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='authentication' )
             </sqlCheck>
         </preConditions>
-        <comment>creating schema comuni_authentication</comment>
+        <comment>creating schema authentication</comment>
         <sql>
-            CREATE SCHEMA AUTHORIZATION comuni_authentication
+            CREATE SCHEMA authentication AUTHORIZATION comuni_authentication
         </sql>
         <rollback>
-            <sql>DROP SCHEMA "comuni_authentication";</sql>
+            <sql>DROP SCHEMA "authentication";</sql>
         </rollback>
     </changeSet>
 
@@ -60,11 +60,11 @@
         <comment>schema table grants for comuni_authentication</comment>
         <sql>
             ALTER DEFAULT PRIVILEGES
-            IN SCHEMA comuni_authentication
+            IN SCHEMA authentication
             GRANT ALL ON TABLES TO comuni_authentication
         </sql>
         <rollback>
-            REVOKE ALL ON ALL TABLES IN SCHEMA comuni_authentication FROM comuni_authentication
+            REVOKE ALL ON ALL TABLES IN SCHEMA authentication FROM comuni_authentication
         </rollback>
     </changeSet>
 

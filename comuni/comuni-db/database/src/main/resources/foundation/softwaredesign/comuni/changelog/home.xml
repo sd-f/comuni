@@ -40,17 +40,17 @@
                dbms="postgresql">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">
-                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='comuni_home' )
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='home' )
                 UNION
-                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='comuni_home' )
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='home' )
             </sqlCheck>
         </preConditions>
-        <comment>creating comuni_home home</comment>
+        <comment>creating home home</comment>
         <sql>
-            CREATE SCHEMA AUTHORIZATION comuni_home
+            CREATE SCHEMA home AUTHORIZATION comuni_home
         </sql>
         <rollback>
-            <sql>DROP SCHEMA "comuni_home";</sql>
+            <sql>DROP SCHEMA "home";</sql>
         </rollback>
     </changeSet>
 
@@ -60,11 +60,11 @@
         <comment>schema table grants for comuni_home</comment>
         <sql>
             ALTER DEFAULT PRIVILEGES
-            IN SCHEMA comuni_home
+            IN SCHEMA home
             GRANT ALL ON TABLES TO comuni_home
         </sql>
         <rollback>
-            REVOKE ALL ON ALL TABLES IN SCHEMA comuni_home FROM comuni_home
+            REVOKE ALL ON ALL TABLES IN SCHEMA home FROM comuni_home
         </rollback>
     </changeSet>
 
@@ -72,6 +72,31 @@
     <changeSet id="home_after_schema"
                author="Lucas Reeh">
         <tagDatabase tag="home_after_schema" />
+    </changeSet>
+
+    <changeSet id="home_create_table_system" author="Lucas Reeh">
+        <createTable tableName="system"
+                     schemaName="home"
+                     remarks="Basic system information">
+            <column name="name"
+                    remarks="Name of the system"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="welcome_message"
+                    remarks="systems welcome message"
+                    type="VARCHAR(400)">
+                <constraints nullable="false"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="home_table_system_content" author="Lucas Reeh">
+        <insert tableName="system"
+                schemaName="home">
+            <column name="name" value="comuni 1.0-SNAPSHOT"/>
+            <column name="welcome_message" value="Welcome to Comuni"/>
+        </insert>
     </changeSet>
 
     <changeSet id="home_end" author="Lucas Reeh">
