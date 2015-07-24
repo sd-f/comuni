@@ -24,7 +24,7 @@
     </properties>
 
     <modules>
-        <module>erd</module>
+        <module>database</module>
     </modules>
 
 </project>
