@@ -7,27 +7,22 @@
 
     <parent>
         <groupId>foundation.softwaredesign</groupId>
-        <artifactId>comuni-lib</artifactId>
+        <artifactId>comuni-apps</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>foundation.softwaredesign.comuni-lib</groupId>
-    <artifactId>comuni-persistence-lib</artifactId>
-    <name>${project.artifactId} (Persistence library)</name>
-    <description>persistence library for comuni projects, jpa, eclipselink, orm, ...</description>
+    <groupId>foundation.softwaredesign.comuni-apps</groupId>
+    <artifactId>comuni-app-gui-config</artifactId>
+
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId} (App-GUI-Configuration)</name>
+
+    <description>holding maven configuration for app gui modules</description>
 
     <properties>
         <!-- path to root folder -->
         <path.to.root>../../</path.to.root>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
 
 </project>

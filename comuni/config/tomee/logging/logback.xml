@@ -20,7 +20,7 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="org.apache.cxf" level="WARN"></logger>
+    <logger name="org.apache.cxf" level="INFO"></logger>
 
     <logger name="org.apache.catalina" level="WARN"></logger>
     <logger name="org.apache" level="WARN"></logger>
@@ -28,8 +28,9 @@
     <logger name="javax.persistence" level="WARN"></logger>
     <logger name="org.eclipse.persistence.logging" level="WARN"></logger>
     <logger name="org.eclipse" level="WARN"></logger>
+    <logger name="org.reflections" level="WARN"></logger>
 
-    <logger name="OpenEJB" level="WARN"></logger>
+    <logger name="OpenEJB" level="INFO"></logger>
 
     <logger name="javax" level="INFO"></logger>
     <logger name="java" level="INFO"></logger>

@@ -1,0 +1,10 @@
+{
+    "elements": {
+        "md-toolbar": {}
+    },
+    "attributes": {
+        "layout": {
+            "context": "div"
+        }
+    }
+}

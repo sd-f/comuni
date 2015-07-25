@@ -8,6 +8,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,6 +24,7 @@ public class Answer<T> {
 
   @XmlElementWrapper(name = "you-can")
   @XmlAnyElement
+  @XmlList
   public List<Question> questions = new ArrayList<>();
 
   public Answer() {

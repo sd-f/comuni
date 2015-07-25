@@ -13,9 +13,7 @@
 
     <groupId>foundation.softwaredesign.comuni-lib</groupId>
     <artifactId>comuni-rest-lib</artifactId>
-
     <name>${project.artifactId} (REST library)</name>
-
     <description>REST library for comuni projects, jpa, eclipselink, orm, ...</description>
 
     <properties>

@@ -13,9 +13,7 @@
 
     <groupId>foundation.softwaredesign.comuni-db</groupId>
     <artifactId>comuni-database</artifactId>
-
     <name>${project.artifactId} (ERD and DDL)</name>
-
     <description>entity relation ship information and data definition and changesets</description>
 
     <properties>

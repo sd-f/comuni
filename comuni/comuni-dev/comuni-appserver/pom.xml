@@ -13,11 +13,8 @@
 
     <groupId>foundation.softwaredesign.comuni-dev</groupId>
     <artifactId>comuni-appserver</artifactId>
-
     <name>${project.artifactId} (comuni app server)</name>
-
     <description>plain app server for comuni deployment</description>
-
     <packaging>war</packaging>
 
     <properties>

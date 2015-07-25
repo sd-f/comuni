@@ -13,15 +13,15 @@ import foundation.softwaredesign.comuni.boundary.lib.annotation.Sentence;
  */
 @Sentence
 @XmlRootElement
-public class WelcomeSentence {
+public class ProposingWelcome {
 
   @XmlElement(name = "hello")
   private String welcomeMessage;
 
-  public WelcomeSentence() {
+  public ProposingWelcome() {
   }
 
-  public WelcomeSentence(String welcomeMessage) {
+  public ProposingWelcome(String welcomeMessage) {
     this.welcomeMessage = welcomeMessage;
   }
 

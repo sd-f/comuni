@@ -13,15 +13,15 @@ import foundation.softwaredesign.comuni.boundary.lib.annotation.Sentence;
  */
 @Sentence
 @XmlRootElement
-public class MyNameIsSentence {
+public class InformingAboutMyName {
 
   @XmlElement(name = "my-name-is")
   private String name;
 
-  public MyNameIsSentence() {
+  public InformingAboutMyName() {
   }
 
-  public MyNameIsSentence(String name) {
+  public InformingAboutMyName(String name) {
     this.name = name;
   }
 
