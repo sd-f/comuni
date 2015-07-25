@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<configuration debug="true">
 
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
 
@@ -21,11 +21,21 @@
     </logger>
 
     <logger name="org.apache.cxf" level="WARN"></logger>
+
     <logger name="org.apache.catalina" level="WARN"></logger>
     <logger name="org.apache" level="WARN"></logger>
-    <logger name="org" level="WARN"></logger>
 
-    <root level="WARN">
+    <logger name="javax.persistence" level="WARN"></logger>
+    <logger name="org.eclipse.persistence.logging" level="WARN"></logger>
+    <logger name="org.eclipse" level="WARN"></logger>
+
+    <logger name="OpenEJB" level="WARN"></logger>
+
+    <logger name="javax" level="INFO"></logger>
+    <logger name="java" level="INFO"></logger>
+    <logger name="com" level="INFO"></logger>
+
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
 

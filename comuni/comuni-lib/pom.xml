@@ -24,7 +24,7 @@
     </properties>
 
     <modules>
-        <module>comuni-persistence</module>
+        <module>comuni-persistence-lib</module>
     </modules>
 
 </project>

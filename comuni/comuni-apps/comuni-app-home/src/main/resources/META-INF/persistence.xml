@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="comuni_home" transaction-type="JTA">
+        <jta-data-source>jdbc/comuni_home</jta-data-source>
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <!-- hint: http://www.eclipse.org/eclipselink/documentation/2.4/jpa/extensions/persistenceproperties_ref.htm -->
+        <properties>
+            <exclude-unlisted-classes>false</exclude-unlisted-classes>
+            <!-- camelcase to underscores -->
+            <property name="eclipselink.session.customizer"
+                      value="foundation.softwaredesign.comuni.persistence.lib.CamelCaseSessionCustomizer"/>
+            <!-- https://github.com/PE-INTERNATIONAL/org.eclipse.persistence.logging.slf4j/blob/master/README.md -->
+            <property name="eclipselink.logging.logger" value="org.eclipse.persistence.logging.Slf4jSessionLogger" />
+            <property name="eclipselink.logging.level" value="FINEST" />
+            <property name="eclipselink.logging.sql" value="FINEST"/>
+            <property name="eclipselink.logging.level.sql" value="FINEST"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

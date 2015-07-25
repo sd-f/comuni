@@ -68,6 +68,16 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="authentication_search_path"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <comment>search path for comuni_authentication</comment>
+        <sql>
+            ALTER USER comuni_authentication SET search_path = public, home
+        </sql>
+        <rollback />
+    </changeSet>
+
 
     <changeSet id="authentication_after_schema"
                author="Lucas Reeh">

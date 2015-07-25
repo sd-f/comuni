@@ -27,8 +27,8 @@
 
     <modules>
         <!-- configuration pom for app modules -->
-        <module>app-config</module>
-		<module>home</module>
+        <module>comuni-app-config</module>
+		<module>comuni-app-home</module>
     </modules>
 
 

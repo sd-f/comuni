@@ -68,6 +68,16 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="home_search_path"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <comment>search path for comuni_home</comment>
+        <sql>
+            ALTER USER comuni_home SET search_path = public, home
+        </sql>
+        <rollback />
+    </changeSet>
+
 
     <changeSet id="home_after_schema"
                author="Lucas Reeh">
