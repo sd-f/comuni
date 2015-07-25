@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="authentication_begin" author="Lucas Reeh">
+        <tagDatabase tag="authentication_begin" />
+    </changeSet>
+
+    <changeSet id="authentication_before_schema"
+               author="Lucas Reeh">
+        <tagDatabase tag="authentication_before_schema" />
+    </changeSet>
+
+    <changeSet id="authentication_create_role"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_authentication' )
+                UNION
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_authentication' )
+            </sqlCheck>
+        </preConditions>
+        <comment>creating role for user comuni_authentication</comment>
+        <sql>
+            CREATE ROLE comuni_authentication LOGIN
+            PASSWORD '${comuni.env.db.password}'
+            NOSUPERUSER INHERIT NOCREATEDB CREATEROLE REPLICATION;
+        </sql>
+        <rollback>
+            <sql>DROP ROLE "comuni_authentication";</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="authentication_create_schema"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='authentication' )
+                UNION
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='authentication' )
+            </sqlCheck>
+        </preConditions>
+        <comment>creating schema authentication</comment>
+        <sql>
+            CREATE SCHEMA authentication AUTHORIZATION comuni_authentication
+        </sql>
+        <rollback>
+            <sql>DROP SCHEMA "authentication";</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="authentication_alter_default_priv_in_schema_to_schema"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <comment>schema table grants for comuni_authentication</comment>
+        <sql>
+            ALTER DEFAULT PRIVILEGES
+            IN SCHEMA authentication
+            GRANT ALL ON TABLES TO comuni_authentication
+        </sql>
+        <rollback>
+            REVOKE ALL ON ALL TABLES IN SCHEMA authentication FROM comuni_authentication
+        </rollback>
+    </changeSet>
+
+
+    <changeSet id="authentication_after_schema"
+               author="Lucas Reeh">
+        <tagDatabase tag="authentication_after_schema" />
+    </changeSet>
+
+    <changeSet id="authentication_end" author="Lucas Reeh">
+        <tagDatabase tag="authentication_end" />
+    </changeSet>
+
+</databaseChangeLog>

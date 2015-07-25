@@ -1,16 +1,16 @@
 /*
  */
-package foundation.softwaredesign.comuni.home.service;
+package foundation.softwaredesign.comuni.home.control;
 
 import foundation.softwaredesign.comuni.home.boundary.SystemDto;
-import foundation.softwaredesign.comuni.home.entity.SystemEntity;
+import foundation.softwaredesign.comuni.home.entity.SystemInfo;
 import org.apache.deltaspike.data.api.mapping.SimpleQueryInOutMapperBase;
 
 /**
  *
  * @author Lucas Reeh <lreeh@tugraz.at>
  */
-public class SystemDtoMapper extends SimpleQueryInOutMapperBase<SystemEntity, SystemDto> {
+public class SystemDtoMapper extends SimpleQueryInOutMapperBase<SystemInfo, SystemDto> {
 
   @Override
   protected Object getPrimaryKey(SystemDto dto) {
@@ -18,7 +18,7 @@ public class SystemDtoMapper extends SimpleQueryInOutMapperBase<SystemEntity, Sy
   }
 
   @Override
-  protected SystemDto toDto(SystemEntity entity) {
+  protected SystemDto toDto(SystemInfo entity) {
     SystemDto dto = new SystemDto();
     dto.setName(entity.getName());
     dto.setWelcomeMessage(entity.getWelcomeMessage());
@@ -26,7 +26,7 @@ public class SystemDtoMapper extends SimpleQueryInOutMapperBase<SystemEntity, Sy
   }
 
   @Override
-  protected SystemEntity toEntity(SystemEntity entity, SystemDto dto) {
+  protected SystemInfo toEntity(SystemInfo entity, SystemDto dto) {
     entity.setName(dto.getName());
     entity.setWelcomeMessage(dto.getWelcomeMessage());
     return entity;

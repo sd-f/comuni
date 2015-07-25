@@ -24,7 +24,7 @@
     </properties>
 
     <modules>
-        <module>database</module>
+        <module>comuni-database</module>
     </modules>
 
 </project>

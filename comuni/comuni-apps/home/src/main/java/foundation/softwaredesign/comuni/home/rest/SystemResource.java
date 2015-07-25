@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import foundation.softwaredesign.comuni.home.boundary.SystemDto;
-import foundation.softwaredesign.comuni.home.service.SystemService;
+import foundation.softwaredesign.comuni.home.control.SystemService;
 
 /**
  *

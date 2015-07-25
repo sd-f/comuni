@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>foundation.softwaredesign.comuni-db</groupId>
-    <artifactId>database</artifactId>
+    <artifactId>comuni-database</artifactId>
 
     <name>${project.artifactId} (ERD and DDL)</name>
 

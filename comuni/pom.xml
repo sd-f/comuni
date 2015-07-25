@@ -63,6 +63,8 @@
         <module>comuni-dev</module>
         <!-- database -->
         <module>comuni-db</module>
+        <!-- libs -->
+        <module>comuni-lib</module>
         <!-- apps -->
         <module>comuni-apps</module>
     </modules>

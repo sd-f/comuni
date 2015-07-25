@@ -7,29 +7,20 @@
 
     <parent>
         <groupId>foundation.softwaredesign</groupId>
-        <artifactId>comuni</artifactId>
+        <artifactId>comuni-lib</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>foundation.softwaredesign</groupId>
-    <artifactId>comuni-dev</artifactId>
+    <groupId>foundation.softwaredesign.comuni-lib</groupId>
+    <artifactId>comuni-persistence</artifactId>
 
-    <packaging>pom</packaging>
+    <name>${project.artifactId} (Persistence library)</name>
 
-    <name>${project.artifactId} (Development Tools)</name>
-
-    <description>development tools to help working with comuni</description>
+    <description>persistence library for comuni projects, jpa, eclipselink, orm, ...</description>
 
     <properties>
         <!-- path to root folder -->
-        <path.to.root>../</path.to.root>
+        <path.to.root>../../</path.to.root>
     </properties>
-
-    <modules>
-        <!-- Preconfigured App Server -->
-        <module>comuni-appserver</module>
-
-    </modules>
-
 
 </project>

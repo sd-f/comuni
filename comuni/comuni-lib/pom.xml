@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -12,13 +10,13 @@
     </parent>
 
     <groupId>foundation.softwaredesign</groupId>
-    <artifactId>comuni-dev</artifactId>
+    <artifactId>comuni-lib</artifactId>
 
     <packaging>pom</packaging>
 
-    <name>${project.artifactId} (Development Tools)</name>
+    <name>${project.artifactId} (Libraries)</name>
 
-    <description>development tools to help working with comuni</description>
+    <description>Library collection for comuni projects</description>
 
     <properties>
         <!-- path to root folder -->
@@ -26,10 +24,7 @@
     </properties>
 
     <modules>
-        <!-- Preconfigured App Server -->
-        <module>comuni-appserver</module>
-
+        <module>comuni-persistence</module>
     </modules>
-
 
 </project>

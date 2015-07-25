@@ -7,15 +7,13 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
  * @author Lucas Reeh <lreeh@tugraz.at>
  */
 @Entity
-@Table(name = "system", schema = "home")
-public class SystemEntity implements Serializable {
+public class SystemInfo implements Serializable {
 
   private static final long serialVersionUID = 1L;
 

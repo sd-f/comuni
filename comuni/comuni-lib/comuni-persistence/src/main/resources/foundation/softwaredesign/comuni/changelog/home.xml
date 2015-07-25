@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="home_begin" author="Lucas Reeh">
+        <tagDatabase tag="home_begin" />
+    </changeSet>
+
+    <changeSet id="home_before_schema"
+               author="Lucas Reeh">
+        <tagDatabase tag="home_before_schema" />
+    </changeSet>
+
+    <changeSet id="home_create_role"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_home' )
+                UNION
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_home' )
+            </sqlCheck>
+        </preConditions>
+        <comment>creating role for user comuni_home</comment>
+        <sql>
+            CREATE ROLE comuni_home LOGIN
+            PASSWORD '${comuni.env.db.password}'
+            NOSUPERUSER INHERIT NOCREATEDB CREATEROLE REPLICATION;
+        </sql>
+        <rollback>
+            <sql>DROP ROLE "comuni_home";</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="home_create_schema"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='home' )
+                UNION
+                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='home' )
+            </sqlCheck>
+        </preConditions>
+        <comment>creating home home</comment>
+        <sql>
+            CREATE SCHEMA home AUTHORIZATION comuni_home
+        </sql>
+        <rollback>
+            <sql>DROP SCHEMA "home";</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="home_alter_default_priv_in_schema_to_schema"
+               author="Lucas Reeh"
+               dbms="postgresql">
+        <comment>schema table grants for comuni_home</comment>
+        <sql>
+            ALTER DEFAULT PRIVILEGES
+            IN SCHEMA home
+            GRANT ALL ON TABLES TO comuni_home
+        </sql>
+        <rollback>
+            REVOKE ALL ON ALL TABLES IN SCHEMA home FROM comuni_home
+        </rollback>
+    </changeSet>
+
+
+    <changeSet id="home_after_schema"
+               author="Lucas Reeh">
+        <tagDatabase tag="home_after_schema" />
+    </changeSet>
+
+    <changeSet id="home_create_table_system_info" author="Lucas Reeh">
+        <createTable tableName="system_info"
+                     schemaName="home"
+                     remarks="Basic system information">
+            <column name="name"
+                    remarks="Name of the system"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="welcome_message"
+                    remarks="systems welcome message"
+                    type="VARCHAR(400)">
+                <constraints nullable="false"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="home_system_info_system_content" author="Lucas Reeh">
+        <insert tableName="system_info"
+                schemaName="home">
+            <column name="name" value="comuni 1.0-SNAPSHOT"/>
+            <column name="welcome_message" value="Welcome to Comuni"/>
+        </insert>
+        <rollback>
+            <sql>delete from home.system_info where name = 'comuni 1.0-SNAPSHOT'</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="home_end" author="Lucas Reeh">
+        <tagDatabase tag="home_end" />
+    </changeSet>
+
+</databaseChangeLog>

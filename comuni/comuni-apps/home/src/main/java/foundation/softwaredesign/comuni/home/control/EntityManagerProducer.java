@@ -1,6 +1,6 @@
 /*
  */
-package foundation.softwaredesign.comuni.home.service;
+package foundation.softwaredesign.comuni.home.control;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
