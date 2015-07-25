@@ -2,14 +2,11 @@
  */
 package foundation.softwaredesign.comuni.home.boundary;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  *
  * @author Lucas Reeh <lreeh@tugraz.at>
  */
-@XmlRootElement
-public class SystemInformation {
+public class SystemInfoDto {
 
   private String name;
 

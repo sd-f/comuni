@@ -6,8 +6,8 @@ package foundation.softwaredesign.comuni.home.boundary;
  *
  * @author Lucas Reeh <lreeh@tugraz.at>
  */
-public interface SystemInformationService {
+public interface SystemInfoService {
 
-  SystemInformation getSystemInformation();
+  SystemInfoDto getSystemInformation();
 
 }

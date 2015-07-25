@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>foundation.softwaredesign</groupId>
+        <artifactId>comuni-lib</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>foundation.softwaredesign.comuni-lib</groupId>
+    <artifactId>comuni-rest-lib</artifactId>
+
+    <name>${project.artifactId} (REST library)</name>
+
+    <description>REST library for comuni projects, jpa, eclipselink, orm, ...</description>
+
+    <properties>
+        <!-- path to root folder -->
+        <path.to.root>../../</path.to.root>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>

@@ -2,21 +2,20 @@
  */
 package foundation.softwaredesign.comuni.home.control;
 
-import foundation.softwaredesign.comuni.home.boundary.SystemInformationService;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import foundation.softwaredesign.comuni.home.boundary.SystemInformation;
+import foundation.softwaredesign.comuni.home.boundary.SystemInfoDto;
+import foundation.softwaredesign.comuni.home.boundary.SystemInfoService;
 
 /**
  *
  * @author Lucas Reeh <lreeh@tugraz.at>
  */
 @Stateless
-public class SystemInformatinServiceImpl implements SystemInformationService {
+public class SystemInfoServiceImpl implements SystemInfoService {
 
   @PersistenceContext(unitName = "comuni_home")
   private EntityManager entityManager;
@@ -25,8 +24,8 @@ public class SystemInformatinServiceImpl implements SystemInformationService {
   SystemInfoRespository repo;
 
   @Override
-  public SystemInformation getSystemInformation() {
-    SystemInformation a = repo.findAll(0, 1).get(0);
+  public SystemInfoDto getSystemInformation() {
+    SystemInfoDto a = repo.findAll(0, 1).get(0);
     return a;
   }
 

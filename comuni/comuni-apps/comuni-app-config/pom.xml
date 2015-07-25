@@ -24,13 +24,13 @@
         <!-- path to root folder -->
         <path.to.root>../../</path.to.root>
         <context.path>xxx</context.path>
+        <tomee.libs.dir>${project.build.directory}/apache-tomee-libs</tomee.libs.dir>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>${ee.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -40,6 +40,13 @@
             <artifactId>comuni-persistence-lib</artifactId>
             <version>${comuni.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- comuni rest library -->
+        <dependency>
+            <groupId>foundation.softwaredesign.comuni-lib</groupId>
+            <artifactId>comuni-rest-lib</artifactId>
+            <version>${comuni.version}</version>
         </dependency>
 
         <dependency>
@@ -109,37 +116,18 @@
                     <removeDefaultWebapps>true</removeDefaultWebapps>
                     <removeTomeeWebapp>true</removeTomeeWebapp>
                     <reloadOnUpdate>true</reloadOnUpdate>
-                    <simpleLog>true</simpleLog>
+                    <lib>${tomee.libs.dir}</lib>
                     <classpaths>
-                        <classpath>${project.build.directory}/apache-tomee/lib/slf4j-api-${slf4j.version}.jar</classpath>
-                        <classpath>${project.build.directory}/apache-tomee/lib/jul-to-slf4j-${slf4j.version}.jar</classpath>
-                        <classpath>${project.build.directory}/apache-tomee/lib/logback-classic-${logback.version}.jar</classpath>
-                        <classpath>${project.build.directory}/apache-tomee/lib/logback-core-${logback.version}.jar</classpath>
+                        <classpath>${tomee.libs.dir}/slf4j-api-${slf4j.version}.jar</classpath>
+                        <classpath>${tomee.libs.dir}/jul-to-slf4j-${slf4j.version}.jar</classpath>
+                        <classpath>${tomee.libs.dir}/logback-classic-${logback.version}.jar</classpath>
+                        <classpath>${tomee.libs.dir}/logback-core-${logback.version}.jar</classpath>
                         <classpath>${project.build.directory}/apache-tomee/conf/logging</classpath>
                     </classpaths>
                     <libs>
-                        <lib>foundation.softwaredesign.comuni-lib:comuni-persistence-lib:${comuni.version}</lib>
-                        <lib>org.eclipse.persistence:eclipselink:${eclipselink.version}</lib>
-                        <lib>postgresql:postgresql:${postgres.version}</lib>
                         <!-- remove unsed libs -->
                         <lib>remove:myfaces-</lib>
                         <lib>remove:slf4j-jdk14-</lib>
-
-                        <lib>org.slf4j:slf4j-api:${slf4j.version}</lib>
-                        <lib>org.slf4j:jul-to-slf4j:${slf4j.version}</lib>
-                        <lib>ch.qos.logback:logback-classic:${logback.version}</lib>
-                        <lib>ch.qos.logback:logback-core:${logback.version}</lib>
-                        <lib>ch.qos.logback:logback-access:${logback.version}</lib>
-
-                        <!-- deltaspike -->
-                        <!--                        <lib>org.apache.deltaspike.core:deltaspike-core-api:${deltaspike.version}</lib>
-                        <lib>org.apache.deltaspike.core:deltaspike-core-impl:${deltaspike.version}</lib>
-                        <lib>org.apache.deltaspike.modules:deltaspike-data-module-api:${deltaspike.version}</lib>
-                        <lib>org.apache.deltaspike.modules:deltaspike-data-module-impl:${deltaspike.version}</lib>
-                        <lib>org.apache.deltaspike.modules:deltaspike-jpa-module-api:${deltaspike.version}</lib>
-                        <lib>org.apache.deltaspike.modules:deltaspike-jpa-module-impl:${deltaspike.version}</lib>
-                        <lib>org.apache.deltaspike.modules:deltaspike-partial-bean-module-api:${deltaspike.version}</lib>
-                        <lib>org.apache.deltaspike.modules:deltaspike-partial-bean-module-impl:${deltaspike.version}</lib>-->
                     </libs>
                     <synchronization>
                         <extensions>
@@ -157,6 +145,88 @@
                         </extensions>
                     </synchronization>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-libs</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${tomee.libs.dir}</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>foundation.softwaredesign.comuni-lib</groupId>
+                                    <artifactId>comuni-persistence-lib</artifactId>
+                                    <version>${comuni.version}</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>org.eclipse.persistence</groupId>
+                                    <artifactId>eclipselink</artifactId>
+                                    <version>${eclipselink.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>postgresql</groupId>
+                                    <artifactId>postgresql</artifactId>
+                                    <version>${postgres.version}</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>org.slf4j</groupId>
+                                    <artifactId>slf4j-api</artifactId>
+                                    <version>${slf4j.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.slf4j</groupId>
+                                    <artifactId>jul-to-slf4j</artifactId>
+                                    <version>${slf4j.version}</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>org.reflections</groupId>
+                                    <artifactId>reflections</artifactId>
+                                    <version>${reflections.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.google.guava</groupId>
+                                    <artifactId>guava</artifactId>
+                                    <version>${guava.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.javassist</groupId>
+                                    <artifactId>javassist</artifactId>
+                                    <version>3.19.0-GA</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>ch.qos.logback</groupId>
+                                    <artifactId>logback-classic</artifactId>
+                                    <version>${logback.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>ch.qos.logback</groupId>
+                                    <artifactId>logback-core</artifactId>
+                                    <version>${logback.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>ch.qos.logback</groupId>
+                                    <artifactId>logback-access</artifactId>
+                                    <version>${logback.version}</version>
+                                </artifactItem>
+
+
+                            </artifactItems>
+
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

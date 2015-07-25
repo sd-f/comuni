@@ -35,7 +35,7 @@
     <logger name="java" level="INFO"></logger>
     <logger name="com" level="INFO"></logger>
 
-    <root level="DEBUG">
+    <root level="${comuni.env.log.level}">
         <appender-ref ref="STDOUT" />
     </root>
 

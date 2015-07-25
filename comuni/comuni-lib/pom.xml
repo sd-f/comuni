@@ -25,6 +25,7 @@
 
     <modules>
         <module>comuni-persistence-lib</module>
+        <module>comuni-rest-lib</module>
     </modules>
 
 </project>
