@@ -13,7 +13,7 @@
 
     <url>https://softwaredesign.foundation/comuni/</url>
 
-    <name>${project.artifactId} (CampusCommunity)</name>
+    <name>${project.artifactId} (Comuni)</name>
 
     <description>CampusCommunity Master Module</description>
 
@@ -35,7 +35,7 @@
         <comuni.version>1.0-SNAPSHOT</comuni.version>
 
         <!-- app server -->
-        <tomee.version>7.0.0-SNAPSHOT</tomee.version>
+        <tomee.version>2.0.0-SNAPSHOT</tomee.version>
         <tomee.classifier>webprofile</tomee.classifier>
 
         <!-- java ee -->
@@ -45,8 +45,17 @@
         <liquibase.version>3.4.0</liquibase.version>
 
         <!-- logging -->
-        <slf4j.version>1.6.4</slf4j.version>
+        <slf4j.version>1.7.12</slf4j.version>
         <logback.version>1.0.1</logback.version>
+
+        <!-- delta spike -->
+        <deltaspike.version>1.4.2</deltaspike.version>
+
+        <!-- postgres -->
+        <postgres.version>9.1-901-1.jdbc4</postgres.version>
+
+        <!-- eclipselink -->
+        <eclipselink.version>2.6.0</eclipselink.version>
     </properties>
 
     <modules>
@@ -54,6 +63,8 @@
         <module>comuni-dev</module>
         <!-- database -->
         <module>comuni-db</module>
+        <!-- apps -->
+        <module>comuni-apps</module>
     </modules>
 
     <distributionManagement>
@@ -73,16 +84,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -91,6 +95,11 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
@@ -106,7 +115,7 @@
             <dependency>
                 <groupId>postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>9.1-901-1.jdbc4</version>
+                <version>${postgres.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.liquibase</groupId>

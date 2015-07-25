@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender class="ch.qos.logback.core.FileAppender" name="FILE-CATALINA">
+        <file>${catalina.base}/logs/full.log</file>
+        <encoder>
+            <pattern>[%level] %d{HH:mm:ss} %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="foundation.softwaredesign.comuni" level="${comuni.env.log.level}">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="org.apache.cxf" level="WARN"></logger>
+    <logger name="org.apache.catalina" level="WARN"></logger>
+    <logger name="org.apache" level="WARN"></logger>
+    <logger name="org" level="WARN"></logger>
+
+    <root level="WARN">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

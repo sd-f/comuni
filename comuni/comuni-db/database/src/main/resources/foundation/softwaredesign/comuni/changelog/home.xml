@@ -74,8 +74,8 @@
         <tagDatabase tag="home_after_schema" />
     </changeSet>
 
-    <changeSet id="home_create_table_system" author="Lucas Reeh">
-        <createTable tableName="system"
+    <changeSet id="home_create_table_system_info" author="Lucas Reeh">
+        <createTable tableName="system_info"
                      schemaName="home"
                      remarks="Basic system information">
             <column name="name"
@@ -91,12 +91,15 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="home_table_system_content" author="Lucas Reeh">
-        <insert tableName="system"
+    <changeSet id="home_system_info_system_content" author="Lucas Reeh">
+        <insert tableName="system_info"
                 schemaName="home">
             <column name="name" value="comuni 1.0-SNAPSHOT"/>
             <column name="welcome_message" value="Welcome to Comuni"/>
         </insert>
+        <rollback>
+            <sql>delete * from home.system where name = 'comuni 1.0-SNAPSHOT'</sql>
+        </rollback>
     </changeSet>
 
     <changeSet id="home_end" author="Lucas Reeh">

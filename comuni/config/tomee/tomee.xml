@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<tomee>
+
+    <Resource id="jdbc/comuni_authentication" type="DataSource">
+        JdbcDriver  ${comuni.env.db.jdbc.driver}
+        JdbcUrl     ${comuni.env.db.jdbc.url}
+        UserName    comuni_authentication
+        Password    ${comuni.env.db.password}
+    </Resource>
+
+    <Resource id="jdbc/comuni_home" type="DataSource">
+        JdbcDriver  ${comuni.env.db.jdbc.driver}
+        JdbcUrl     ${comuni.env.db.jdbc.url}
+        UserName    comuni_home
+        Password    ${comuni.env.db.password}
+    </Resource>
+
+</tomee>
