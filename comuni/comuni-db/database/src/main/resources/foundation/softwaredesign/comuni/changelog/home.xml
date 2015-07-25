@@ -98,7 +98,7 @@
             <column name="welcome_message" value="Welcome to Comuni"/>
         </insert>
         <rollback>
-            <sql>delete * from home.system where name = 'comuni 1.0-SNAPSHOT'</sql>
+            <sql>delete from home.system where name = 'comuni 1.0-SNAPSHOT'</sql>
         </rollback>
     </changeSet>
 
