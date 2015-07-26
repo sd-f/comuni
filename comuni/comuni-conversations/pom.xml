@@ -11,10 +11,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>comuni-dev</artifactId>
+    <groupId>foundation.softwaredesign</groupId>
+    <artifactId>comuni-conversations</artifactId>
+
     <packaging>pom</packaging>
-    <name>${project.artifactId} (Development Tools)</name>
-    <description>development tools to help working with comuni</description>
+
+    <name>${project.artifactId} (Conversations)</name>
+
+    <description>conversation apps for comuni</description>
 
     <properties>
         <!-- path to root folder -->
@@ -22,7 +26,15 @@
     </properties>
 
     <modules>
-
+        <!-- configuration pom for app modules -->
+        <module>comuni-conversations-config</module>
+		
+		<!-- conversations -->
+        <module>comuni-start-conversation</module>
+	
+		<!-- deployment -->
+		<module>comuni-deploy-conversations</module>
     </modules>
+
 
 </project>

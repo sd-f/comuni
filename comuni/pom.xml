@@ -32,6 +32,7 @@
         <!-- app server -->
         <tomee.version>2.0.0-SNAPSHOT</tomee.version>
         <tomee.classifier>webprofile</tomee.classifier>
+        <jetty.version>9.3.1.v20150714</jetty.version>
         <!-- java ee -->
         <ee.version>7.0</ee.version>
         <!-- liquibase -->
@@ -58,7 +59,7 @@
         <!-- libs -->
         <module>comuni-lib</module>
         <!-- apps -->
-        <module>comuni-apps</module>
+        <module>comuni-conversations</module>
     </modules>
 
     <repositories>
@@ -174,6 +175,12 @@
                 <groupId>com.mattbertolini</groupId>
                 <artifactId>liquibase-slf4j</artifactId>
                 <version>1.2.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-proxy</artifactId>
+                <version>${jetty.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -7,22 +7,22 @@
 
     <parent>
         <groupId>foundation.softwaredesign</groupId>
-        <artifactId>comuni</artifactId>
+        <artifactId>comuni-gui</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>comuni-dev</artifactId>
+    <groupId>foundation.softwaredesign.comuni-gui</groupId>
+    <artifactId>comuni-gui-config</artifactId>
+
     <packaging>pom</packaging>
-    <name>${project.artifactId} (Development Tools)</name>
-    <description>development tools to help working with comuni</description>
+
+    <name>${project.artifactId} (GUI-Configuration)</name>
+
+    <description>holding maven configuration for gui modules</description>
 
     <properties>
         <!-- path to root folder -->
-        <path.to.root>../</path.to.root>
+        <path.to.root>../../</path.to.root>
     </properties>
-
-    <modules>
-
-    </modules>
 
 </project>

@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <tomee>
 
+    <Deployments dir="apps"/>
+
     <Resource id="jdbc/comuni_authentication" type="DataSource">
         JdbcDriver  ${comuni.env.db.jdbc.driver}
         JdbcUrl     ${comuni.env.db.jdbc.url}
