@@ -17,7 +17,7 @@
 
     <packaging>war</packaging>
 
-    <name>${project.artifactId} (Conversations Deployment)</name>
+    <name>${project.artifactId} (Deployment)</name>
 
     <description>deployment of all comuni conversations</description>
 

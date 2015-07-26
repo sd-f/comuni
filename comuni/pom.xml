@@ -58,8 +58,10 @@
         <module>comuni-db</module>
         <!-- libs -->
         <module>comuni-lib</module>
-        <!-- apps -->
+        <!-- conversations -->
         <module>comuni-conversations</module>
+        <!-- guis -->
+        <module>comuni-gui</module>
     </modules>
 
     <repositories>

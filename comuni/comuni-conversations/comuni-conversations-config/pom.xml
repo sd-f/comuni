@@ -16,7 +16,7 @@
 
     <packaging>pom</packaging>
 
-    <name>${project.artifactId} (Conversations-Configuration)</name>
+    <name>${project.artifactId} (Conversations-Config)</name>
 
     <description>holding maven configuration for conversations modules</description>
 

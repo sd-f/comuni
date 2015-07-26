@@ -16,7 +16,7 @@
     <artifactId>comuni-start-gui</artifactId>
     <name>${project.artifactId} (Start GUI)</name>
     <description>graphical user interface for start</description>
-
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
@@ -37,7 +37,7 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
+                    <!--                    <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>-->
                     <webXml>src/jetty/web.xml</webXml>
                     <jettyXml>src/jetty/jetty-http.xml</jettyXml>
                 </configuration>
