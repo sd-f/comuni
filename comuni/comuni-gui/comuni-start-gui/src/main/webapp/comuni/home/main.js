@@ -62,7 +62,7 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
         $scope.answerToWhatIsYourName = $scope.conversationName.answer.sentences['my-name-is'];
 
         $scope.messages.push({
-          what: "my-name-is " + $scope.questionWhatIsYourName,
+          what: "my-name-is " + $scope.answerToWhatIsYourName,
           who: "Server",
           image: "computer",
           notes: "Server answered: " + JSON.stringify(answer)
