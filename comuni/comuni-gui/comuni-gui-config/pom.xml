@@ -25,4 +25,45 @@
         <path.to.root>../../</path.to.root>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-proxy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>foundation.softwaredesign.comuni-lib</groupId>
+            <artifactId>comuni-gui-lib</artifactId>
+            <version>${comuni.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <stopPort>9966</stopPort>
+                    <stopKey>jetty-stop</stopKey>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
+                    <webXml>${path.to.root}config/jetty/web.xml</webXml>
+                    <jettyXml>${path.to.root}config/jetty/jetty-http.xml, ${path.to.root}config/jetty/jetty.xml</jettyXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

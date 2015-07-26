@@ -18,31 +18,4 @@
     <description>graphical user interface for start</description>
     <packaging>war</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-proxy</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty.version}</version>
-                <configuration>
-                    <!--                    <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>-->
-                    <webXml>src/jetty/web.xml</webXml>
-                    <jettyXml>src/jetty/jetty-http.xml</jettyXml>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

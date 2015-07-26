@@ -1,5 +1,7 @@
 /* global angular */
 
+var startConversationHome = "/comuni-conversations/start-conversation/home/";
+
 var app = angular.module('ComuniHomeApp', ['ngMaterial', 'ngResource']);
 
 app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', function ($scope, $resource, $mdSidenav) {
@@ -13,12 +15,12 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
     $scope.questionWhatIsYourName = {};
     $scope.answerToWhatIsYourName = {};
 
-    var Answer = $resource('http://localhost:8021/comuni-app-home-1.0-SNAPSHOT/hello');
+    var Answer = $resource(startConversationHome + 'hello');
     Answer.get({}).$promise.then(function (answer) {
       $scope.conversationWelcome = answer;
       $scope.answerToHello = $scope.conversationWelcome['answer']['sentences']['hello'];
       $scope.questionWhatIsYourName = $scope.conversationWelcome['answer']['you-can']['ask']['question'];
-      var Name = $resource('http://localhost:8021/comuni-app-home-1.0-SNAPSHOT' + $scope.questionWhatIsYourName);
+      var Name = $resource(startConversationHome + $scope.questionWhatIsYourName);
       Name.get({}).$promise.then(function (answer) {
         $scope.conversationName = answer;
         $scope.answerToWhatIsYourName = $scope.conversationName['answer']['sentences']['my-name-is'];

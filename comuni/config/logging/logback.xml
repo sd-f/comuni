@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<configuration debug="true">
 
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
 
@@ -13,7 +13,7 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
 
