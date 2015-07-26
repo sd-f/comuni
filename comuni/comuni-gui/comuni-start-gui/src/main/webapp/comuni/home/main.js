@@ -1,6 +1,6 @@
 /* global angular */
 
-var startConversationHome = "/comuni-conversations/start-conversations/home/";
+var startConversationHome = "/comuni-conversations/start-conversations/home";
 
 var app = angular.module('ComuniHomeApp', ['ngMaterial', 'ngResource'])
     .config(function ($mdThemingProvider) {
@@ -33,7 +33,7 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
       notes: "Say to server"
     });
 
-    var Answer = $resource(startConversationHome + 'hello');
+    var Answer = $resource(startConversationHome + '/hello');
     Answer.get({}).$promise.then(function (answer) {
       $scope.conversationWelcome = answer;
       $scope.answerToHello = $scope.conversationWelcome.answer.sentences.hello;
