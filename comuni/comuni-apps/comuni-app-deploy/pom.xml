@@ -37,7 +37,6 @@
                         <webapp>foundation.softwaredesign.comuni-apps:comuni-app-home:${comuni.version}?name=home</webapp>
                     </webapps>
                     <skipCurrentProject>true</skipCurrentProject>
-                    <zipFile>${comuni.env.deploy.target.path}/${project.build.finalName}.zip</zipFile>
                 </configuration>
             </plugin>
             <plugin>
