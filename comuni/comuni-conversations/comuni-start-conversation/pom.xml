@@ -22,7 +22,7 @@
     <description>comuni start conversation app</description>
 
     <properties>
-        <context.path>start-conversation</context.path>
+        <context.path>start-conversations</context.path>
     </properties>
 
 

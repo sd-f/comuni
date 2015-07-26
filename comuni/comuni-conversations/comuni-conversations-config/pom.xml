@@ -106,6 +106,7 @@
                 <version>${tomee.version}</version>
                 <configuration>
                     <context>${context.path}</context>
+                    <path>${project.build.directory}/${project.build.finalName}.war</path>
                     <config>${project.build.directory}/config/tomee</config>
                     <tomeeVersion>${tomee.version}</tomeeVersion>
                     <tomeeClassifier>${tomee.classifier}</tomeeClassifier>

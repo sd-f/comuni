@@ -34,9 +34,11 @@
                 <version>${tomee.version}</version>
                 <configuration>
                     <webapps>
-                        <webapp>foundation.softwaredesign.comuni-conversations:comuni-start-conversation:${comuni.version}?name=start-conversation</webapp>
+                        <webapp>foundation.softwaredesign.comuni-conversations:comuni-start-conversations:${comuni.version}?name=start-conversations</webapp>
                     </webapps>
                     <skipCurrentProject>true</skipCurrentProject>
+                    <removeDefaultWebapps>false</removeDefaultWebapps>
+                    <removeTomeeWebapp>false</removeTomeeWebapp>
                 </configuration>
             </plugin>
             <plugin>
