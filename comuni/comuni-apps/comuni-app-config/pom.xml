@@ -110,8 +110,6 @@
                     <tomeeClassifier>${tomee.classifier}</tomeeClassifier>
                     <tomeeHttpPort>8021</tomeeHttpPort>
                     <tomeeAjpPort>8030</tomeeAjpPort>
-                    <path>${project.build.directory}/${project.build.finalName}.war</path>
-                    <!--                    <tomeeHttpsPort>8022</tomeeHttpsPort>-->
                     <tomeeShutdownPort>8031</tomeeShutdownPort>
                     <removeDefaultWebapps>true</removeDefaultWebapps>
                     <removeTomeeWebapp>true</removeTomeeWebapp>
@@ -236,36 +234,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <!-- Snapshot Repo from Apache -->
-    <repositories>
-        <repository>
-            <id>apache-m2-snapshot</id>
-            <name>Apache Snapshot Repository</name>
-            <url>https://repository.apache.org/content/groups/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>apache-m2-staging</id>
-            <name>Apache Staging Snapshots</name>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>https://repository.apache.org/content/repositories/snapshots</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>apache-m2-staging</id>
-            <name>Apache Staging Snapshots Plugins</name>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>https://repository.apache.org/content/repositories/snapshots</url>
-        </pluginRepository>
-    </pluginRepositories>
-
 
 </project>

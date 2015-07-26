@@ -26,7 +26,6 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>${ee.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -108,35 +107,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <!-- Snapshot Repo from Apache -->
-    <repositories>
-        <repository>
-            <id>apache-m2-snapshot</id>
-            <name>Apache Snapshot Repository</name>
-            <url>https://repository.apache.org/content/groups/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>apache-m2-staging</id>
-            <name>Apache Staging Snapshots</name>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>https://repository.apache.org/content/repositories/snapshots</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>apache-m2-staging</id>
-            <name>Apache Staging Snapshots Plugins</name>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>https://repository.apache.org/content/repositories/snapshots</url>
-        </pluginRepository>
-    </pluginRepositories>
 
 </project>
