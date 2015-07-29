@@ -19,10 +19,10 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
       $mdSidenav(menuId).toggle();
     };
     $scope.conversationWelcome = {};
-    $scope.answerToHello = {};
+    $scope.answerToHello = null;
     $scope.conversationName = {};
     $scope.questionWhatIsYourName = {};
-    $scope.answerToWhatIsYourName = {};
+    $scope.answerToWhatIsYourName = null;
 
     $scope.messages = [];
 
@@ -42,7 +42,7 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
         what: $scope.answerToHello,
         who: "Server",
         image: "computer",
-        notes: "Server answered: " + JSON.stringify(answer, null, 2).replace(/(?:\r\n|\r|\n)/g, '<br />')
+        notes: "Server answered: " + JSON.stringify(answer, null, 2)
       });
 
       $scope.questionWhatIsYourName = $scope.conversationWelcome.answer['you-can'].ask.question;
@@ -63,7 +63,7 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
           what: "my-name-is " + $scope.answerToWhatIsYourName,
           who: "Server",
           image: "computer",
-          notes: "Server answered: " + JSON.stringify(answer, null, 2).replace(/(?:\r\n|\r|\n)/g, '<br />')
+          notes: "Server answered: " + JSON.stringify(answer, null, 2)
         });
 
       });
