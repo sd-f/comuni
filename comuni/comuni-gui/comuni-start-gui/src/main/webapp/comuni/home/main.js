@@ -42,10 +42,8 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
         what: $scope.answerToHello,
         who: "Server",
         image: "computer",
-        notes: "Server answered: " + JSON.stringify(answer)
+        notes: "Server answered: " + JSON.stringify(answer, null, 2)
       });
-
-
 
       $scope.questionWhatIsYourName = $scope.conversationWelcome.answer['you-can'].ask.question;
 
@@ -65,7 +63,7 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
           what: "my-name-is " + $scope.answerToWhatIsYourName,
           who: "Server",
           image: "computer",
-          notes: "Server answered: " + JSON.stringify(answer)
+          notes: "Server answered: " + JSON.stringify(answer, null, 2)
         });
 
       });
