@@ -13,8 +13,6 @@
             <!-- camelcase to underscores -->
             <property name="eclipselink.session.customizer"
                       value="foundation.softwaredesign.comuni.persistence.lib.CamelCaseSessionCustomizer"/>
-            <!-- https://github.com/PE-INTERNATIONAL/org.eclipse.persistence.logging.slf4j/blob/master/README.md -->
-            <property name="eclipselink.logging.logger" value="org.eclipse.persistence.logging.Slf4jSessionLogger" />
             <property name="eclipselink.logging.level" value="FINEST" />
             <property name="eclipselink.logging.sql" value="FINEST"/>
             <property name="eclipselink.logging.level.sql" value="FINEST"/>

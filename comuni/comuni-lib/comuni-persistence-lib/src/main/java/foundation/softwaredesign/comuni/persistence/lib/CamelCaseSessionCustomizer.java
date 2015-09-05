@@ -23,14 +23,14 @@ public class CamelCaseSessionCustomizer implements SessionCustomizer {
       if (!descriptor.getTables().isEmpty() && descriptor.getAlias().equalsIgnoreCase(descriptor.getTableName())) {
         String tableName = addUnderscores(descriptor.getJavaClass().getSimpleName());
         descriptor.setTableName(tableName);
-        descriptor.getTables().get(0).getIndexes().stream().forEach((index) -> {
-          index.setTargetTable(tableName);
-        });
+        descriptor.getTables().get(0).getIndexes().stream().forEach(index
+            -> index.setTargetTable(tableName)
+        );
       }
       descriptor.getMappings().stream().filter((mapping) -> (mapping.getField() != null && !mapping.getAttributeName().isEmpty()
-          && mapping.getField().getName().equalsIgnoreCase(mapping.getAttributeName()))).forEach((mapping) -> {
-            mapping.getField().setName(addUnderscores(mapping.getAttributeName()));
-          }); // Only change the column name for non-embedable entities with
+          && mapping.getField().getName().equalsIgnoreCase(mapping.getAttributeName()))).forEach(mapping
+              -> mapping.getField().setName(addUnderscores(mapping.getAttributeName()))
+          ); // Only change the column name for non-embedable entities with
       // no @Column already
     }
   }
@@ -38,9 +38,10 @@ public class CamelCaseSessionCustomizer implements SessionCustomizer {
   private static String addUnderscores(String name) {
     StringBuilder buf = new StringBuilder(name.replace('.', '_'));
     for (int i = 1; i < buf.length() - 1; i++) {
-      if (Character.isLowerCase(buf.charAt(i - 1)) && Character.isUpperCase(buf.charAt(i))
-          && Character.isLowerCase(buf.charAt(i + 1))) {
-        buf.insert(i++, '_');
+      int index = i;
+      if (Character.isLowerCase(buf.charAt(index - 1)) && Character.isUpperCase(buf.charAt(index))
+          && Character.isLowerCase(buf.charAt(index + 1))) {
+        buf.insert(index++, '_');
       }
     }
     return buf.toString().toUpperCase();

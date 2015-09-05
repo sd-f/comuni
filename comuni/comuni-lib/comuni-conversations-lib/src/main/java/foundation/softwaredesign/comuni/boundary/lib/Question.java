@@ -11,21 +11,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "ask")
 public class Question {
 
-  private String question;
+  private String questionText;
 
   public Question() {
   }
 
   public Question(String question) {
-    this.question = question;
+    this.questionText = question;
   }
 
-  public String getQuestion() {
-    return question;
+  public String getQuestionText() {
+    return questionText;
   }
 
-  public void setQuestion(String question) {
-    this.question = question;
+  public void setQuestionText(String questionText) {
+    this.questionText = questionText;
   }
 
 }
