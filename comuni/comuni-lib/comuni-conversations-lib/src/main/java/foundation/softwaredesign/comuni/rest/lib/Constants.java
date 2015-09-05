@@ -8,6 +8,9 @@ package foundation.softwaredesign.comuni.rest.lib;
  */
 public class Constants {
 
+  private Constants() {
+  }
+
   public final static String BOUNDARY_PACKAGE_NAME = "foundation.softwaredesign.comuni";
 
 }

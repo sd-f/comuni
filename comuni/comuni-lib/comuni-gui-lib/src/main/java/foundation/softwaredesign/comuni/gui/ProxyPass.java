@@ -19,7 +19,7 @@ public class ProxyPass extends ProxyServlet {
   private static final long serialVersionUID = 1L;
 
   private static int PORT_OUT = 8021;
-  private String CONTAINS_PATH = "";
+  private static String CONTAINS_PATH = "";
 
   @Override
   public void init() throws ServletException {

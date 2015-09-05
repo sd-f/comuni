@@ -27,7 +27,7 @@ public class CamelCaseSessionCustomizer implements SessionCustomizer {
             -> index.setTargetTable(tableName)
         );
       }
-      descriptor.getMappings().stream().filter((mapping) -> (mapping.getField() != null && !mapping.getAttributeName().isEmpty()
+      descriptor.getMappings().stream().filter(mapping -> (mapping.getField() != null && !mapping.getAttributeName().isEmpty()
           && mapping.getField().getName().equalsIgnoreCase(mapping.getAttributeName()))).forEach(mapping
               -> mapping.getField().setName(addUnderscores(mapping.getAttributeName()))
           ); // Only change the column name for non-embedable entities with
