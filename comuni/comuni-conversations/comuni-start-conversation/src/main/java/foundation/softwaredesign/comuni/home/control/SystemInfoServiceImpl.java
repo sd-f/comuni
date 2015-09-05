@@ -20,8 +20,7 @@ public class SystemInfoServiceImpl implements SystemInfoService {
 
   @Override
   public SystemInfoDto getSystemInformation() {
-    SystemInfoDto a = repo.findAll(0, 1).get(0);
-    return a;
+    return repo.findAll(0, 1).get(0);
   }
 
 }
