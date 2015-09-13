@@ -2,6 +2,8 @@
  */
 package foundation.softwaredesign.comuni.home.boundary.sentences;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,11 +15,16 @@ import foundation.softwaredesign.comuni.boundary.lib.annotation.Sentence;
  */
 @Sentence
 @XmlRootElement
-public class InformingAboutMyName {
+public class InformingAboutMyName implements Serializable {
+
+  private static final long serialVersionUID = 1L;
 
   @XmlElement(name = "my-name-is")
   private String name;
 
+  /**
+   * zero argument constructor for jaxb
+   */
   public InformingAboutMyName() {
   }
 

@@ -18,24 +18,24 @@ public class ProxyPass extends ProxyServlet {
 
   private static final long serialVersionUID = 1L;
 
-  private int port = 8021;
-  private String path = "";
-  private String replace = "";
-  private String with = "";
+  private static int PORT = 8021;
+  private static String PATH = "";
+  private static String REPLACE = "";
+  private static String WITH = "";
 
   @Override
   public void init() throws ServletException {
     if (super.getInitParameter("portOut") != null) {
-      port = new Integer(super.getInitParameter("portOut"));
+      PORT = new Integer(super.getInitParameter("portOut"));
     }
     if (super.getInitParameter("path") != null) {
-      path = super.getInitParameter("path");
+      PATH = super.getInitParameter("path");
     }
     if (super.getInitParameter("replace") != null) {
-      replace = super.getInitParameter("replace");
+      REPLACE = super.getInitParameter("replace");
     }
     if (super.getInitParameter("with") != null) {
-      with = super.getInitParameter("with");
+      WITH = super.getInitParameter("with");
     }
     super.init();
   }
@@ -43,14 +43,14 @@ public class ProxyPass extends ProxyServlet {
   @Override
   protected String rewriteTarget(HttpServletRequest clientRequest) {
     String oldPath = clientRequest.getRequestURI();
-    if (oldPath.contains(path)) {
+    if (oldPath.contains(PATH)) {
 
       String url = clientRequest.getRequestURL().toString();
       if (clientRequest.getServerPort() != 80) {
         throw new WebApplicationException("Only works on port 80");
       }
       StringBuilder uri = new StringBuilder("");
-      uri.append(url.replace(replace, with).replace(clientRequest.getServerName(), clientRequest.getServerName() + ":" + port));
+      uri.append(url.replace(REPLACE, WITH).replace(clientRequest.getServerName(), clientRequest.getServerName() + ":" + PORT));
 
       String query = clientRequest.getQueryString();
       if (query != null) {

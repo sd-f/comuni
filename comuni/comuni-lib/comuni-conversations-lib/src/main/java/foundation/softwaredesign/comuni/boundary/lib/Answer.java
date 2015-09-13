@@ -2,6 +2,7 @@
  */
 package foundation.softwaredesign.comuni.boundary.lib;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @param <T>
  */
 @XmlRootElement
-public class Answer<T> {
+public class Answer<T> implements Serializable {
+
+  private static final long serialVersionUID = 1L;
 
   @XmlElement(name = "sentences")
   public T sentences;
@@ -27,6 +30,9 @@ public class Answer<T> {
   @XmlList
   public List<Question> questions = new ArrayList<>();
 
+  /**
+   * zero argument constructor for jaxb
+   */
   public Answer() {
   }
 
