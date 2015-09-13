@@ -16,8 +16,16 @@
             <param-value>8021</param-value>
         </init-param>
         <init-param>
-            <param-name>containsPath</param-name>
-            <param-value>-conversation/</param-value>
+            <param-name>path</param-name>
+            <param-value>/comuni-conversations</param-value>
+        </init-param>
+        <init-param>
+            <param-name>replace</param-name>
+            <param-value>/comuni-conversations</param-value>
+        </init-param>
+        <init-param>
+            <param-name>with</param-name>
+            <param-value></param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>

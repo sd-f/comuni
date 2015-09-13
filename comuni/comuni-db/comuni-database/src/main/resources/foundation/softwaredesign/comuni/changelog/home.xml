@@ -2,8 +2,9 @@
 <databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext https://softwaredesign.foundation/xsd/liquibase/dbchangelog-ext.xsd">
 
     <changeSet id="home_begin" author="Lucas Reeh">
         <tagDatabase tag="home_begin" />
@@ -17,65 +18,40 @@
     <changeSet id="home_create_role"
                author="Lucas Reeh"
                dbms="postgresql">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_home' )
-                UNION
-                SELECT 0 WHERE EXISTS ( SELECT 1 FROM pg_roles WHERE rolname='comuni_home' )
-            </sqlCheck>
-        </preConditions>
         <comment>creating role for user comuni_home</comment>
-        <sql>
-            CREATE ROLE comuni_home LOGIN
-            PASSWORD '${comuni.env.db.password}'
-            NOSUPERUSER INHERIT NOCREATEDB CREATEROLE REPLICATION;
-        </sql>
-        <rollback>
-            <sql>DROP ROLE "comuni_home";</sql>
-        </rollback>
+        <ext:createRole roleName="comuni_home">
+            <ext:options password="${comuni.env.db.password}" loginAllowed="true"></ext:options>
+        </ext:createRole>
     </changeSet>
 
     <changeSet id="home_create_schema"
                author="Lucas Reeh"
                dbms="postgresql">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                SELECT 1 WHERE NOT EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='home' )
-                UNION
-                SELECT 0 WHERE EXISTS ( SELECT 1 FROM information_schema.schemata WHERE schema_name='home' )
-            </sqlCheck>
-        </preConditions>
         <comment>creating home home</comment>
-        <sql>
-            CREATE SCHEMA home AUTHORIZATION comuni_home
-        </sql>
-        <rollback>
-            <sql>DROP SCHEMA "home";</sql>
-        </rollback>
+        <ext:createSchema schemaName="home" authorization="comuni_home"></ext:createSchema>
     </changeSet>
 
     <changeSet id="home_alter_default_priv_in_schema_to_schema"
                author="Lucas Reeh"
                dbms="postgresql">
         <comment>schema table grants for comuni_home</comment>
-        <sql>
-            ALTER DEFAULT PRIVILEGES
-            IN SCHEMA home
-            GRANT ALL ON TABLES TO comuni_home
-        </sql>
-        <rollback>
-            REVOKE ALL ON ALL TABLES IN SCHEMA home FROM comuni_home
-        </rollback>
+        <ext:alterDefaultPrivileges inSchema="home">
+            <ext:grant operation="ALL" onObjects="TABLES" toRole="comuni_home"/>
+        </ext:alterDefaultPrivileges>
     </changeSet>
 
     <changeSet id="home_search_path"
                author="Lucas Reeh"
                dbms="postgresql">
         <comment>search path for comuni_home</comment>
-        <sql>
-            ALTER USER comuni_home SET search_path = public, home
-        </sql>
-        <rollback />
+        <ext:alterRole roleName="comuni_home">
+            <ext:set parameter="search_path" value="public, home"/>
+        </ext:alterRole>
+        <rollback>
+            <ext:alterRole roleName="comuni_home">
+                <ext:set parameter="search_path" value="DEFAULT"/>
+            </ext:alterRole>
+        </rollback>
     </changeSet>
 
 
@@ -108,7 +84,10 @@
             <column name="welcome_message" value="Welcome to Comuni"/>
         </insert>
         <rollback>
-            <sql>delete from home.system_info where name = 'comuni 1.0-SNAPSHOT'</sql>
+            <delete tableName="system_info"
+                    schemaName="home">
+                <where>NAME = 'comuni 1.0-SNAPSHOT'</where>
+            </delete>
         </rollback>
     </changeSet>
 

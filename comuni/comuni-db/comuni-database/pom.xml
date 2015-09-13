@@ -31,6 +31,10 @@
             <artifactId>liquibase-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.liquibase.ext</groupId>
+            <artifactId>liquibase-postgresql</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.mattbertolini</groupId>
             <artifactId>liquibase-slf4j</artifactId>
         </dependency>
@@ -55,6 +59,13 @@
                     <rollbackTag>begin</rollbackTag>
                     <propertyFile>liquibase.properties</propertyFile>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.liquibase.ext</groupId>
+                        <artifactId>liquibase-postgresql</artifactId>
+                        <version>${liquibase.ext.postgres.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

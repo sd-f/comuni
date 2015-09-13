@@ -32,11 +32,16 @@
         <!-- app server -->
         <tomee.version>2.0.0-SNAPSHOT</tomee.version>
         <tomee.classifier>webprofile</tomee.classifier>
-        <jetty.version>9.3.1.v20150714</jetty.version>
+        <jetty.version>9.3.3.v20150827</jetty.version>
         <!-- java ee -->
         <ee.version>7.0</ee.version>
+        <ee.jsr-api.version>1.1.1</ee.jsr-api.version>
         <!-- liquibase -->
         <liquibase.version>3.4.0</liquibase.version>
+        <!-- liquibase extensions -->
+        <liquibase.ext.postgres.version>3.4-SNAPSHOT</liquibase.ext.postgres.version>
+        <!-- liquibase misc -->
+        <liquibase.slf4j.version>1.2.1</liquibase.slf4j.version>
         <!-- logging -->
         <slf4j.version>1.7.12</slf4j.version>
         <logback.version>1.0.1</logback.version>
@@ -80,6 +85,19 @@
                 <enabled>true</enabled>
             </snapshots>
             <url>https://repository.apache.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>sd.f-snapshots</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <name>softwaredesign.foundation Snapshots</name>
+            <url>${comuni.nexus.repo.url}/sd.f-snapshots</url>
+        </repository>
+        <repository>
+            <id>sd.f-releases</id>
+            <name>softwaredesign.foundation Releases</name>
+            <url>${comuni.nexus.repo.url}/sd.f-releases</url>
         </repository>
     </repositories>
 
@@ -146,6 +164,11 @@
                 <version>${ee.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>jsr311-api</artifactId>
+                <version>${ee.jsr-api.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.reflections</groupId>
@@ -174,9 +197,14 @@
                 <version>${liquibase.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.liquibase.ext</groupId>
+                <artifactId>liquibase-postgresql</artifactId>
+                <version>${liquibase.ext.postgres.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.mattbertolini</groupId>
                 <artifactId>liquibase-slf4j</artifactId>
-                <version>1.2.1</version>
+                <version>${liquibase.slf4j.version}</version>
             </dependency>
 
             <dependency>

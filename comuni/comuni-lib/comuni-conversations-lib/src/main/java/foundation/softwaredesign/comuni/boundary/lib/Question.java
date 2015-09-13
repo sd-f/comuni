@@ -2,6 +2,7 @@
  */
 package foundation.softwaredesign.comuni.boundary.lib;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -11,6 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "ask")
 public class Question {
 
+  @XmlElement(name = "question")
   private String questionText;
 
   public Question() {
