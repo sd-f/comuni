@@ -23,6 +23,7 @@ public class Question implements Serializable {
    * zero argument constructor for jaxb
    */
   public Question() {
+    // zero argument constructor for jaxb
   }
 
   public Question(String question) {

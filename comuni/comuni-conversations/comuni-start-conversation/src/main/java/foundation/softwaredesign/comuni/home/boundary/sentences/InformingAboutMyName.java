@@ -26,6 +26,7 @@ public class InformingAboutMyName implements Serializable {
    * zero argument constructor for jaxb
    */
   public InformingAboutMyName() {
+    // zero argument constructor for jaxb
   }
 
   public InformingAboutMyName(String name) {

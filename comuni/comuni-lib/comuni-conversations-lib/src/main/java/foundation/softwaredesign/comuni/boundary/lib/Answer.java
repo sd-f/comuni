@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,12 +17,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @param <T>
  */
 @XmlRootElement
-public class Answer<T> implements Serializable {
+public class Answer<T extends Serializable> implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @XmlElement(name = "sentences")
-  public T sentences;
+  @XmlElementWrapper(name = "sentences")
+  @XmlAnyElement
+  @XmlList
+  public List<T> sentences = new ArrayList<>();
 
   @XmlElementWrapper(name = "you-can")
   @XmlAnyElement
@@ -34,14 +35,15 @@ public class Answer<T> implements Serializable {
    * zero argument constructor for jaxb
    */
   public Answer() {
-  }
-
-  public Answer(T sentences) {
-    this.sentences = sentences;
+    // zero argument constructor for jaxb
   }
 
   public void addPossibleQuestion(Question question) {
-    questions.add(question);
+    this.questions.add(question);
+  }
+
+  public void addSentence(T sentence) {
+    this.sentences.add(sentence);
   }
 
 }

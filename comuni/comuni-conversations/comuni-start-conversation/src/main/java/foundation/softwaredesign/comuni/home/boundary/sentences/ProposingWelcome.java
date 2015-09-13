@@ -26,6 +26,7 @@ public class ProposingWelcome implements Serializable {
    * zero argument constructor for jaxb
    */
   public ProposingWelcome() {
+    // zero argument constructor for jaxb
   }
 
   public ProposingWelcome(String welcomeMessage) {
