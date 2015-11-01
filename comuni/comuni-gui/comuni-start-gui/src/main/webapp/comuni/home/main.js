@@ -57,7 +57,7 @@ app.controller('ComuniHomeAppCtrl', ['$scope', '$resource', '$mdSidenav', functi
       var Name = $resource(startConversationHome + $scope.questionWhatIsYourName);
       Name.get({}).$promise.then(function (answer) {
         $scope.conversationName = answer;
-        $scope.answerToWhatIsYourName = $scope.conversationName.answer.sentences['my-name-is'];
+        $scope.answerToWhatIsYourName = $scope.conversationName.answer.sentences['informingAboutMyName']['my-name-is'];
 
         $scope.messages.push({
           what: "my-name-is " + $scope.answerToWhatIsYourName,
