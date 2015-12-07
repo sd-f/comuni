@@ -71,6 +71,19 @@
 
     <repositories>
         <repository>
+            <id>sd.f-snapshots</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <name>softwaredesign.foundation Snapshots</name>
+            <url>${comuni.nexus.repo.url}/sd.f-snapshots</url>
+        </repository>
+        <repository>
+            <id>sd.f-releases</id>
+            <name>softwaredesign.foundation Releases</name>
+            <url>${comuni.nexus.repo.url}/sd.f-releases</url>
+        </repository>
+        <repository>
             <id>apache-m2-snapshot</id>
             <name>Apache Snapshot Repository</name>
             <url>https://repository.apache.org/content/groups/snapshots</url>
@@ -86,22 +99,14 @@
             </snapshots>
             <url>https://repository.apache.org/content/repositories/snapshots</url>
         </repository>
-        <repository>
-            <id>sd.f-snapshots</id>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <name>softwaredesign.foundation Snapshots</name>
-            <url>${comuni.nexus.repo.url}/sd.f-snapshots</url>
-        </repository>
-        <repository>
-            <id>sd.f-releases</id>
-            <name>softwaredesign.foundation Releases</name>
-            <url>${comuni.nexus.repo.url}/sd.f-releases</url>
-        </repository>
     </repositories>
 
     <pluginRepositories>
+        <pluginRepository>
+            <id>sd.f-releases</id>
+            <name>softwaredesign.foundation Releases Plugins</name>
+            <url>${comuni.nexus.repo.url}/sd.f-releases</url>
+        </pluginRepository>
         <pluginRepository>
             <id>apache-m2-staging</id>
             <name>Apache Staging Snapshots Plugins</name>
