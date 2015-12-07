@@ -3,8 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xsi:schemaLocation="
-        http://java.sun.com/xml/ns/javaee
-        http://java.sun.com/xml/ns/javaee/beans_1_1.xsd
+        http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_1.xsd
         http://cxf.apache.org/jaxrs
         http://cxf.apache.org/schemas/jaxrs.xsd">
 

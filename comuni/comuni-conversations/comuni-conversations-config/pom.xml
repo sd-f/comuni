@@ -173,7 +173,7 @@
                                     <version>${eclipselink.version}</version>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>postgresql</groupId>
+                                    <groupId>org.postgresql</groupId>
                                     <artifactId>postgresql</artifactId>
                                     <version>${postgres.version}</version>
                                 </artifactItem>

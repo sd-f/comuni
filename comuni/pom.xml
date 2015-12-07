@@ -39,7 +39,7 @@
         <!-- liquibase -->
         <liquibase.version>3.4.0</liquibase.version>
         <!-- liquibase extensions -->
-        <liquibase.ext.postgres.version>3.4-SNAPSHOT</liquibase.ext.postgres.version>
+        <liquibase.ext.postgres.version>3.4</liquibase.ext.postgres.version>
         <!-- liquibase misc -->
         <liquibase.slf4j.version>1.2.1</liquibase.slf4j.version>
         <!-- logging -->
@@ -48,7 +48,7 @@
         <!-- delta spike -->
         <deltaspike.version>1.4.2</deltaspike.version>
         <!-- postgres -->
-        <postgres.version>9.1-901-1.jdbc4</postgres.version>
+        <postgres.version>9.4-1206-jdbc42</postgres.version>
         <!-- eclipselink -->
         <eclipselink.version>2.6.0</eclipselink.version>
         <!-- google -->
@@ -187,7 +187,7 @@
                 <version>${eclipselink.version}</version>
             </dependency>
             <dependency>
-                <groupId>postgresql</groupId>
+                <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgres.version}</version>
             </dependency>

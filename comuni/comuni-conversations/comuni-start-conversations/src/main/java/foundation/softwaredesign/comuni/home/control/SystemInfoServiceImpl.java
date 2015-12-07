@@ -15,6 +15,7 @@ import foundation.softwaredesign.comuni.home.boundary.SystemInfoService;
 @Stateless
 public class SystemInfoServiceImpl implements SystemInfoService {
 
+  @SuppressWarnings("CdiInjectionPointsInspection")
   @Inject
   SystemInfoRespository repo;
 
