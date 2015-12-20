@@ -54,6 +54,8 @@
         <!-- google -->
         <reflections.version>0.9.10</reflections.version>
         <guava.version>18.0</guava.version>
+        <!-- cobertura code coverage -->
+        <cobertura.version>2.7</cobertura.version>
     </properties>
 
     <modules>
@@ -221,6 +223,36 @@
     </dependencyManagement>
 
     <build>
+        <plugins>
+            <!-- config resources in root pom filtering and copying -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <inherited>false</inherited>
+                        <id>copy-config-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/config</directory>
+                                    <filtering>true</filtering>
+                                    <targetPath>${project.build.directory}/config</targetPath>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <!-- maven core plugins -->
@@ -267,9 +299,24 @@
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>2.6</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>${cobertura.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>${cobertura.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
 
 </project>

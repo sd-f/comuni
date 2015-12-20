@@ -47,6 +47,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${path.to.root}/target/config/logging</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -63,8 +72,8 @@
                     <stopKey>jetty-stop</stopKey>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
-                    <webXml>${path.to.root}config/jetty/web.xml</webXml>
-                    <jettyXml>${path.to.root}config/jetty/jetty-http.xml, ${path.to.root}config/jetty/jetty.xml</jettyXml>
+                    <webXml>${path.to.root}/target/config/jetty/web.xml</webXml>
+                    <jettyXml>${path.to.root}/targetconfig/jetty/jetty-http.xml,${path.to.root}/targetconfig/jetty/jetty.xml</jettyXml>
                 </configuration>
             </plugin>
         </plugins>

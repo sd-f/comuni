@@ -9,7 +9,7 @@
                     <Ref refid="Server" />
                 </Arg>
                 <Set name="port">
-                    <Property name="jetty.http.port" deprecated="jetty.port" default="80" />
+                    <Property name="jetty.http.port" deprecated="jetty.port" default="8000" />
                 </Set>
             </New>
         </Arg>
