@@ -17,7 +17,7 @@
 
     <packaging>war</packaging>
 
-    <name>${project.artifactId} (Start Conversation App)</name>
+    <name>${project.artifactId} (Start Conversations)</name>
 
     <description>comuni start conversation app</description>
 
