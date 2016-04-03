@@ -8,7 +8,7 @@
     <parent>
         <groupId>foundation.softwaredesign</groupId>
         <artifactId>comuni</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>comuni-dev</artifactId>

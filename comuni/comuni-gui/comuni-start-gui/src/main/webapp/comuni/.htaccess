@@ -1,2 +1,0 @@
-RedirectMatch /comuni$ /comuni/home
-RedirectMatch /comuni/$ /comuni/home

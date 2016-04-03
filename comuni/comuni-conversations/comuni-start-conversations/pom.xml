@@ -8,7 +8,7 @@
     <parent>
         <groupId>foundation.softwaredesign.comuni-conversations</groupId>
         <artifactId>comuni-conversations-config</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../comuni-conversations-config</relativePath>
     </parent>
 

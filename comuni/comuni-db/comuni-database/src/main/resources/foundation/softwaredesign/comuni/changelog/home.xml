@@ -80,13 +80,13 @@
     <changeSet id="home_system_info_system_content" author="Lucas Reeh">
         <insert tableName="system_info"
                 schemaName="home">
-            <column name="name" value="comuni 1.0-SNAPSHOT"/>
+            <column name="name" value="comuni 1.0.0-SNAPSHOT"/>
             <column name="welcome_message" value="Welcome to Comuni"/>
         </insert>
         <rollback>
             <delete tableName="system_info"
                     schemaName="home">
-                <where>NAME = 'comuni 1.0-SNAPSHOT'</where>
+                <where>NAME = 'comuni 1.0.0-SNAPSHOT'</where>
             </delete>
         </rollback>
     </changeSet>

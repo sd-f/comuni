@@ -8,7 +8,7 @@
     <parent>
         <groupId>foundation.softwaredesign</groupId>
         <artifactId>comuni-conversations</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>foundation.softwaredesign.comuni-conversations</groupId>
@@ -89,13 +89,13 @@
     <build>
         <resources>
             <resource>
-                <directory>${path.to.root}config</directory>
-                <filtering>true</filtering>
-                <targetPath>${project.build.directory}/config</targetPath>
-            </resource>
-            <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>${path.to.root}src/main/config</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}/config</targetPath>
             </resource>
         </resources>
         <plugins>
