@@ -1,4 +1,6 @@
-# comuni [![Build Status](https://softwaredesign.foundation/jenkins/buildStatus/icon?job=comuni-build)](https://softwaredesign.foundation/jenkins/job/comuni-build/)
+# comuni
+
+[![Build Status](https://softwaredesign.foundation/jenkins/buildStatus/icon?job=comuni-build)](https://softwaredesign.foundation/jenkins/job/comuni-build/)
 
 Community platform for students
 
