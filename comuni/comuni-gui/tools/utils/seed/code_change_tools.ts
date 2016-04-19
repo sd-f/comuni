@@ -1,4 +1,4 @@
-import {PORT, APP_DEST, APP_BASE, DIST_DIR} from '../../config';
+import {APP_DEST, APP_BASE, DIST_DIR} from '../../config'; // PORT removed
 import * as browserSync from 'browser-sync';
 import * as util from 'gulp-util';
 import * as chalk from 'chalk';
@@ -39,7 +39,7 @@ let runServer = () => {
         proxy({
           protocol: 'http:',
           hostname: 'localhost',
-          port: 8021,
+          port: 8080,
           pathname: '/',
           route: '/comuni-conversations',
         }),

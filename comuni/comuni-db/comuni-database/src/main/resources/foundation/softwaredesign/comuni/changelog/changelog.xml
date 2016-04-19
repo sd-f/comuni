@@ -11,7 +11,7 @@
     </changeSet>
 
     <include file="home.xml" relativeToChangelogFile="true"/>
-    <!--<include file="authentication.xml" relativeToChangelogFile="true"/>-->
+    <include file="authentication.xml" relativeToChangelogFile="true"/>
 
     <changeSet id="end" author="Lucas Reeh">
         <tagDatabase tag="end" />

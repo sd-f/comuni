@@ -1,26 +1,25 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-
-import {NameListService} from '../../shared/services/name-list.service';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {Conversation} from '../../shared/services/conversation/Conversation';
 
 @Component({
   selector: 'sd-home',
   moduleId: module.id,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  viewProviders: [HTTP_PROVIDERS],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES]
 })
 export class HomeComponent {
-  newName: string;
-  constructor(public nameListService: NameListService) {}
+  constructor(public http: Http) {
 
-  /*
-   * @param newname  any text as input.
-   * @returns return false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    this.nameListService.add(this.newName);
-    this.newName = '';
-    return false;
+    var conversation = new Conversation(http);
+    var questions = conversation.say('hello').getPossibleQuestions();
+
+    for (var question of questions) {
+      console.log(question);
+      conversation.ask(question);
+    }
   }
 }

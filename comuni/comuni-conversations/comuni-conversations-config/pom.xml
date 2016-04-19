@@ -101,7 +101,7 @@
         <plugins>
             <plugin>
                 <!-- Attention new groupId -->
-                <groupId>org.apache.openejb.maven</groupId>
+                <groupId>org.apache.tomee.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
                 <version>${tomee.version}</version>
                 <configuration>
@@ -110,9 +110,6 @@
                     <config>${project.build.directory}/config/tomee</config>
                     <tomeeVersion>${tomee.version}</tomeeVersion>
                     <tomeeClassifier>${tomee.classifier}</tomeeClassifier>
-                    <tomeeHttpPort>8021</tomeeHttpPort>
-                    <tomeeAjpPort>8030</tomeeAjpPort>
-                    <tomeeShutdownPort>8031</tomeeShutdownPort>
                     <removeDefaultWebapps>true</removeDefaultWebapps>
                     <removeTomeeWebapp>true</removeTomeeWebapp>
                     <reloadOnUpdate>true</reloadOnUpdate>
@@ -159,7 +156,6 @@
                             <outputDirectory>${tomee.libs.dir}</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
-
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>foundation.softwaredesign.comuni-lib</groupId>

@@ -30,9 +30,8 @@
         <!-- comuni version -->
         <comuni.version>1.0.0-SNAPSHOT</comuni.version>
         <!-- app server -->
-        <tomee.version>2.0.0-SNAPSHOT</tomee.version>
+        <tomee.version>7.0.0-M3</tomee.version>
         <tomee.classifier>webprofile</tomee.classifier>
-        <jetty.version>9.3.8.v20160314</jetty.version>
         <!-- java ee -->
         <ee.version>7.0</ee.version>
         <ee.jsr-api.version>1.1.1</ee.jsr-api.version>
@@ -89,21 +88,11 @@
             <id>apache-m2-snapshot</id>
             <name>Apache Snapshot Repository</name>
             <url>https://repository.apache.org/content/groups/snapshots</url>
-            <snapshots>
-                <!-- every 2 weeks -->
-                <updatePolicy>interval:20160</updatePolicy>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
         <repository>
-            <id>apache-m2-staging</id>
-            <name>Apache Staging Snapshots</name>
-            <snapshots>
-                <!-- every 2 weeks -->
-                <updatePolicy>interval:20160</updatePolicy>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>https://repository.apache.org/content/repositories/snapshots</url>
+            <id>tomcat-m2-repo</id>
+            <name>Tomcat Dev Repository</name>
+            <url>http://tomcat.apache.org/dev/dist/m2-repository/</url>
         </repository>
     </repositories>
 
@@ -114,12 +103,9 @@
             <url>${comuni.nexus.repo.url}/sd.f-releases</url>
         </pluginRepository>
         <pluginRepository>
-            <id>apache-m2-staging</id>
-            <name>Apache Staging Snapshots Plugins</name>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>https://repository.apache.org/content/repositories/snapshots</url>
+            <id>apache-m2-snapshot</id>
+            <name>Apache Snapshot Repository</name>
+            <url>https://repository.apache.org/content/groups/snapshots</url>
         </pluginRepository>
     </pluginRepositories>
 
