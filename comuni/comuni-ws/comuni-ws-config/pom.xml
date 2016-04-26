@@ -7,12 +7,12 @@
 
     <parent>
         <groupId>foundation.softwaredesign</groupId>
-        <artifactId>comuni-conversations</artifactId>
+        <artifactId>comuni-ws</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>foundation.softwaredesign.comuni-conversations</groupId>
-    <artifactId>comuni-conversations-config</artifactId>
+    <groupId>foundation.softwaredesign.comuni-ws</groupId>
+    <artifactId>comuni-ws-config</artifactId>
 
     <packaging>pom</packaging>
 
@@ -21,7 +21,7 @@
     <description>holding maven configuration for conversations modules</description>
 
     <properties>
-        <context.path>comuni-conversation</context.path>
+        <context.path>comuni-ws</context.path>
         <tomee.libs.dir>${project.build.directory}/apache-tomee-libs</tomee.libs.dir>
     </properties>
 
@@ -34,8 +34,8 @@
 
         <!-- comuni rest library -->
         <dependency>
-            <groupId>foundation.softwaredesign.comuni-conversations</groupId>
-            <artifactId>comuni-conversations-lib</artifactId>
+            <groupId>foundation.softwaredesign.comuni-ws</groupId>
+            <artifactId>comuni-ws-lib</artifactId>
             <version>${comuni.version}</version>
             <scope>compile</scope>
         </dependency>

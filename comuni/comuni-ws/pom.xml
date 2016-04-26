@@ -11,7 +11,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>comuni-conversations</artifactId>
+    <artifactId>comuni-ws</artifactId>
 
     <packaging>pom</packaging>
 
@@ -21,16 +21,14 @@
 
     <modules>
         <!-- lib and boundary classes -->
-        <module>comuni-conversations-lib</module>
+        <module>comuni-ws-lib</module>
 
         <!-- configuration pom for app modules -->
-        <module>comuni-conversations-config</module>
+        <module>comuni-ws-config</module>
 		
 		<!-- conversations -->
-        <module>comuni-start-conversations</module>
-	
-		<!-- deployment -->
-		<module>comuni-deploy-conversations</module>
+        <module>comuni-ws-start</module>
+
     </modules>
 
     <build>

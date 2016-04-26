@@ -63,7 +63,7 @@
         <!-- database -->
         <module>comuni-database</module>
         <!-- conversations -->
-        <module>comuni-conversations</module>
+        <module>comuni-ws</module>
     </modules>
 
     <repositories>
