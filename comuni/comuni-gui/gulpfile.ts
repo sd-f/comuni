@@ -10,9 +10,9 @@ loadTasks(PROJECT_TASKS_DIR);
 // --------------
 // Build dev.
 gulp.task('build.dev', (done: any) =>
-  runSequence('clean.dev',
-              'tslint',
-              'css-lint',
+  runSequence(//'clean.dev',
+//              'tslint',
+//              'css-lint',
               'build.assets.dev',
               'build.html_css',
               'build.js.dev',
@@ -97,6 +97,15 @@ gulp.task('serve.e2e', (done: any) =>
               'server.start',
               'watch.e2e',
               done));
+
+
+// --------------
+// Serve prod
+gulp.task('serve.prod', (done: any) =>
+  runSequence('build.prod',
+              'server.prod',
+              done));
+
 
 // --------------
 // Test.

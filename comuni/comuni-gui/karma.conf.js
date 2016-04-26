@@ -18,7 +18,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/zone.js/dist/zone-microtask.js',
+      'node_modules/zone.js/dist/zone.js',
       'node_modules/zone.js/dist/long-stack-trace-zone.js',
       'node_modules/zone.js/dist/jasmine-patch.js',
       'node_modules/es6-module-loader/dist/es6-module-loader.js',
@@ -34,9 +34,16 @@ module.exports = function(config) {
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
 
+      // suppress annoying 404 warnings for resources, images, etc.      
+      { pattern: 'dist/dev/assets/**/*', watched: false, included: false, served: true },      
+
       'test-main.js'
     ],
 
+    // must go along with above, suppress annoying 404 warnings.   
+    proxies: {
+      '/assets/': '/base/dist/dev/assets/'
+    },
 
     // list of files to exclude
     exclude: [
@@ -87,7 +94,7 @@ module.exports = function(config) {
         flags: ['--no-sandbox']
       }
     },
-    
+
     coverageReporter: {
       dir: 'coverage/',
       reporters: [
@@ -99,7 +106,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false, 
+    singleRun: false,
 
     // Passing command line arguments to tests
     client: {
