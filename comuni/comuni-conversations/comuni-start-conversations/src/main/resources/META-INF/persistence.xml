@@ -15,7 +15,7 @@
 
             <!-- camelcase to underscores -->
             <property name="eclipselink.session.customizer"
-                      value="foundation.softwaredesign.comuni.persistence.lib.CamelCaseSessionCustomizer"/>
+                      value="foundation.softwaredesign.comuni.lib.persistence.CamelCaseSessionCustomizer"/>
             <!--            <property name="eclipselink.logging.level" value="FINEST" />
             <property name="eclipselink.logging.sql" value="FINEST"/>
             <property name="eclipselink.logging.level.sql" value="FINEST"/>

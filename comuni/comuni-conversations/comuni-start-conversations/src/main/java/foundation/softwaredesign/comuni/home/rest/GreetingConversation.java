@@ -9,8 +9,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import foundation.softwaredesign.comuni.boundary.lib.Answer;
-import foundation.softwaredesign.comuni.boundary.lib.Question;
+import foundation.softwaredesign.comuni.lib.boundary.Answer;
+import foundation.softwaredesign.comuni.lib.boundary.Question;
 import foundation.softwaredesign.comuni.home.boundary.SystemInfoService;
 import foundation.softwaredesign.comuni.home.boundary.sentences.InformingAboutMyName;
 import foundation.softwaredesign.comuni.home.boundary.sentences.ProposingWelcome;

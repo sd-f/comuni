@@ -19,12 +19,10 @@
 
     <description>conversation apps for comuni</description>
 
-    <properties>
-        <!-- path to root folder -->
-        <path.to.root>../</path.to.root>
-    </properties>
-
     <modules>
+        <!-- lib and boundary classes -->
+        <module>comuni-conversations-lib</module>
+
         <!-- configuration pom for app modules -->
         <module>comuni-conversations-config</module>
 		
@@ -35,5 +33,18 @@
 		<module>comuni-deploy-conversations</module>
     </modules>
 
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+            <!-- adding central logging config -->
+            <testResource>
+                <directory>../../src/main/logging</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+    </build>
 
 </project>

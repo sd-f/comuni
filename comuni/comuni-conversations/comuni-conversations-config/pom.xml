@@ -21,8 +21,6 @@
     <description>holding maven configuration for conversations modules</description>
 
     <properties>
-        <!-- path to root folder -->
-        <path.to.root>../../</path.to.root>
         <context.path>comuni-conversation</context.path>
         <tomee.libs.dir>${project.build.directory}/apache-tomee-libs</tomee.libs.dir>
     </properties>
@@ -34,17 +32,9 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- comuni persistence library -->
-        <dependency>
-            <groupId>foundation.softwaredesign.comuni-lib</groupId>
-            <artifactId>comuni-persistence-lib</artifactId>
-            <version>${comuni.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- comuni rest library -->
         <dependency>
-            <groupId>foundation.softwaredesign.comuni-lib</groupId>
+            <groupId>foundation.softwaredesign.comuni-conversations</groupId>
             <artifactId>comuni-conversations-lib</artifactId>
             <version>${comuni.version}</version>
             <scope>compile</scope>
@@ -94,7 +84,7 @@
                 <filtering>true</filtering>
             </resource>
             <resource>
-                <directory>${path.to.root}src/main/config</directory>
+                <directory>../../src/main/config</directory>
                 <filtering>true</filtering>
                 <targetPath>${project.build.directory}/config</targetPath>
             </resource>
@@ -219,19 +209,6 @@
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>2.2</version>
-                <executions>
-                    <execution>
-                        <id>schemagen</id>
-                        <goals>
-                            <goal>schemagen</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
