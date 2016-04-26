@@ -10,10 +10,4 @@
     <alternatives>
         <class>org.apache.deltaspike.jpa.impl.transaction.BeanManagedUserTransactionStrategy</class>
     </alternatives>
-    <jaxrs:providers>
-        <bean class="org.apache.cxf.jaxrs.provider.JSONProvider">
-            <property name="dropRootElement" value="true" />
-            <property name="supportUnwrapped" value="true" />
-        </bean>
-    </jaxrs:providers>
 </beans>

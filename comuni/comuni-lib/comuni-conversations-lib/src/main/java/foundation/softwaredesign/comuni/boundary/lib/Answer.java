@@ -5,30 +5,24 @@ package foundation.softwaredesign.comuni.boundary.lib;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 /**
- *
- * @author Lucas Reeh <lreeh@tugraz.at>
  * @param <T>
+ * @author Lucas Reeh <lreeh@tugraz.at>
  */
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Answer<T extends Serializable> implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
   @XmlElementWrapper(name = "sentences")
   @XmlAnyElement
-  @XmlList
   public List<T> sentences = new ArrayList<>();
 
   @XmlElementWrapper(name = "you-can")
   @XmlAnyElement
-  @XmlList
   public List<Question> questions = new ArrayList<>();
 
   /**

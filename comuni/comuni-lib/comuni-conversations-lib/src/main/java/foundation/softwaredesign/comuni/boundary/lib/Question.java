@@ -4,6 +4,8 @@ package foundation.softwaredesign.comuni.boundary.lib;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lucas Reeh <lreeh@tugraz.at>
  */
 @XmlRootElement(name = "ask")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Question implements Serializable {
 
   private static final long serialVersionUID = 1L;

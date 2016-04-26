@@ -1,6 +1,9 @@
 import {join} from 'path';
 import {SeedConfig} from './seed.config';
 import {InjectableDependency} from './seed.config.interfaces';
+import * as chalk from 'chalk';
+import * as util from 'gulp-util';
+
 const proxy = require('http-proxy-middleware');
 
 export class ProjectConfig extends SeedConfig {
@@ -40,6 +43,8 @@ export class ProjectConfig extends SeedConfig {
     const seedDependencies = this.NPM_DEPENDENCIES;
 
     this.NPM_DEPENDENCIES = seedDependencies.concat(additional_deps);
+
+    util.log('Proxy ', chalk.red('http://localhost:'+this.PORT+'/comuni-conversations -> http://localhost:8080'));
 
     this.BROWSER_SYNC_CONFIG = {
       middleware: [

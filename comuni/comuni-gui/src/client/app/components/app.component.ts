@@ -22,6 +22,11 @@ import {AboutComponent} from '../+about/index';
     path: '/about',
     name: 'About',
     component: AboutComponent
+  },
+  {
+    path: '/hello',
+    name: 'Hello',
+    component: AboutComponent
   }
 ])
 export class AppComponent {}
