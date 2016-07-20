@@ -413,6 +413,7 @@ export class SeedConfig {
    * Configurations for NPM module configurations. Add to or override in project.config.ts.
    * If you like, use the mergeObject() method to assist with this.
    */
+
   PLUGIN_CONFIGS: any = {
     /**
      * The BrowserSync configuration of the application.
