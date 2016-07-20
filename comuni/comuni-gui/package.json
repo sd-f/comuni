@@ -1,9 +1,9 @@
 {
   "name": "angular2-seed-material2",
   "version": "0.0.0",
-  "description": "Modular seed project for Angular 2 apps with fast, statically typed build",
+  "description": "Comuni",
   "repository": {
-    "url": "https://github.com/DeviantJS/angular2-seed-material2"
+    "url": "https://github.com/sd-f/comuni"
   },
   "scripts": {
     "build.dev": "gulp build.dev --color",
@@ -32,16 +32,16 @@
     "webdriver-start": "webdriver-manager start",
     "webdriver-update": "webdriver-manager update"
   },
-  "author": "Minko Gechev <mgechev>",
+  "author": "Lucas Reeh <lr86gm@gmail.com>",
   "contributors": [
     {
-      "name": "Joshua Wiens <d3viant0ne>"
+      "name": "Lucas Reeh <lr86gm@gmail.com>"
     }
   ],
   "license": "MIT",
   "devDependencies": {
-    "async": "^1.4.2",
-    "autoprefixer": "^6.3.6",
+    "async": "2.0.0",
+    "autoprefixer": "6.3.7",
     "browser-sync": "^2.11.2",
     "codelyzer": "0.0.20",
     "colorguard": "^1.1.1",
@@ -116,14 +116,14 @@
     "yargs": "^4.2.0"
   },
   "dependencies": {
-    "@angular/common": "2.0.0-rc.3",
-    "@angular/compiler": "2.0.0-rc.3",
-    "@angular/core": "2.0.0-rc.3",
-    "@angular/forms": "0.1.1",
-    "@angular/http": "2.0.0-rc.3",
-    "@angular/platform-browser": "2.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.3",
-    "@angular/router": "3.0.0-alpha.7",
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/http": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "@angular/router": "v3.0.0-alpha.8",
+    "@angular/forms": "^0.1.0",
     "@angular2-material/button": "^2.0.0-alpha.6",
     "@angular2-material/card": "^2.0.0-alpha.6",
     "@angular2-material/checkbox": "^2.0.0-alpha.6",
@@ -141,8 +141,8 @@
     "@angular2-material/toolbar": "^2.0.0-alpha.6",
     "core-js": "^2.4.0",
     "es6-module-loader": "^0.17.8",
-    "rxjs": "5.0.0-beta.6",
-    "systemjs": "0.19.27",
+    "rxjs": "5.0.0-beta.10",
+    "systemjs": "0.19.31",
     "zone.js": "^0.6.12"
   }
 }

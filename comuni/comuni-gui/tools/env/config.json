@@ -1,11 +1,11 @@
 {
   "dev": {
-    "API": "https://demo.com"
+    "API": "http://localhost:8080/"
   },
   "prod": {
-    "API": "https://prod.com"
+    "API": "http://localhost:8080/"
   },
   "staging": {
-    "API": "https://staging.com"
+    "API": "http://localhost:8080/"
   }
 }
