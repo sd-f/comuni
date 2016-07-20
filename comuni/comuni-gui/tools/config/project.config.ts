@@ -44,11 +44,11 @@ export class ProjectConfig extends SeedConfig {
 
     this.NPM_DEPENDENCIES = seedDependencies.concat(additional_deps);
 
-    util.log('Proxy ', chalk.red('http://localhost:'+this.PORT+'/comuni-conversations -> http://localhost:8080'));
+    util.log('Proxy ', chalk.red('http://localhost:'+this.PORT+'/comuni-conversations -> http://localhost:8080/comuni-conversations'));
 
     this.BROWSER_SYNC_CONFIG = {
       middleware: [
-        proxy('/comuni-conversations', {target: 'http://localhost:8080'}),
+        proxy('/comuni-conversations', {target: 'http://localhost:8080/comuni-conversations'}),
         require('connect-history-api-fallback')({index: `${this.APP_BASE}index.html`})
       ],
       port: this.PORT,

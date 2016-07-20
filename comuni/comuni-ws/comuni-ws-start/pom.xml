@@ -21,8 +21,4 @@
 
     <description>comuni start conversation app</description>
 
-    <properties>
-        <context.path>start-conversations</context.path>
-    </properties>
-
 </project>

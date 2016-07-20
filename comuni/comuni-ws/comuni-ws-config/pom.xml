@@ -21,7 +21,7 @@
     <description>holding maven configuration for conversations modules</description>
 
     <properties>
-        <context.path>comuni-ws</context.path>
+        <context.path>comuni-conversations</context.path>
         <tomee.libs.dir>${project.build.directory}/apache-tomee-libs</tomee.libs.dir>
     </properties>
 

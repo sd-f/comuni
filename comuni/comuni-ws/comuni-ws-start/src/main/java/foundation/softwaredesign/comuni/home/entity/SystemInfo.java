@@ -1,5 +1,3 @@
-/*
- */
 package foundation.softwaredesign.comuni.home.entity;
 
 import java.io.Serializable;
