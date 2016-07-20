@@ -13,6 +13,7 @@ import { Config, NameListService, NavbarComponent, ToolbarComponent } from './sh
   selector: 'sd-app',
   viewProviders: [NameListService, HTTP_PROVIDERS],
   templateUrl: 'app.component.html',
+  styleUrls: ['theme.css'],
   directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
 })
 export class AppComponent {

@@ -1,0 +1,21 @@
+@import '../../theme';
+@import "@angular2-material/core/style/variables";
+@import '@angular2-material/core/style/palette';
+
+.sd-toolbar-title-span {
+  margin-left: 10px;
+  color: white;
+}
+
+.sd-toolbar-filler {
+  flex: 1 1 auto;
+}
+
+.main-toolbar {
+  background-color: md-color($md-primary);
+}
+
+.main-toolbar button {
+  box-shadow: none;
+  background-color: md-color($md-primary);
+}

@@ -1,6 +1,7 @@
 import { join } from 'path';
 
 import { SeedConfig } from './seed.config';
+import SassOptions = require('gulp-sass');
 
 /**
  * This class extends the basic seed configuration, allowing for project specific overrides. A few examples can be found
@@ -13,6 +14,7 @@ export class ProjectConfig extends SeedConfig {
   constructor() {
     super();
     this.APP_TITLE = 'Comuni';
+    this.ENABLE_SCSS = true;
 
     // Add third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [

@@ -9,5 +9,5 @@ import { APP_DEST, APP_SRC } from '../../config';
  */
 export = () => {
   return gulp.src(join(APP_SRC, '**/*.ts'))
-    .pipe(gulp.dest(APP_DEST));
+             .pipe(gulp.dest(APP_DEST));
 };

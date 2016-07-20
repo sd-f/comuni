@@ -2,6 +2,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
+import { MdIconRegistry} from '@angular2-material/icon/icon';
 
 import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ bootstrap(AppComponent, [
   disableDeprecatedForms(),
   provideForms(),
   APP_ROUTER_PROVIDERS,
+  MdIconRegistry,
   {
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
