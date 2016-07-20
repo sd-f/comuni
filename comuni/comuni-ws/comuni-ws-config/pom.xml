@@ -180,11 +180,6 @@
                                     <artifactId>guava</artifactId>
                                     <version>${guava.version}</version>
                                 </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.javassist</groupId>
-                                    <artifactId>javassist</artifactId>
-                                    <version>3.19.0-GA</version>
-                                </artifactItem>
 
                                 <artifactItem>
                                     <groupId>org.codehaus.jettison</groupId>
