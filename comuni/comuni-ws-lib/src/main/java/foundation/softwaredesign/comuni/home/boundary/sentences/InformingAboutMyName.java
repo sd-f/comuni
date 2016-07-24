@@ -2,6 +2,7 @@
  */
 package foundation.softwaredesign.comuni.home.boundary.sentences;
 
+import foundation.softwaredesign.comuni.lib.boundary.AbstractSentence;
 import foundation.softwaredesign.comuni.lib.boundary.annotation.Sentence;
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,11 +17,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Sentence
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class InformingAboutMyName implements Serializable {
+public class InformingAboutMyName extends AbstractSentence implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @XmlElement(name = "my-name-is")
+  @XmlElement(name = "myNameIs")
   private String name;
 
   /**

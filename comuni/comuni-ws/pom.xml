@@ -16,9 +16,9 @@
 
     <packaging>war</packaging>
 
-    <name>${project.artifactId} (Start Conversations)</name>
+    <name>${project.artifactId} (Comuni conversation API)</name>
 
-    <description>comuni start conversation app</description>
+    <description>Comuni conversation API</description>
 
     <properties>
         <context.path>api</context.path>
@@ -32,12 +32,17 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- comuni rest library -->
         <dependency>
-            <groupId>foundation.softwaredesign.comuni-ws</groupId>
+            <groupId>foundation.softwaredesign.comuni</groupId>
             <artifactId>comuni-ws-lib</artifactId>
             <version>${comuni.version}</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -73,6 +78,12 @@
             <artifactId>deltaspike-data-module-impl</artifactId>
             <version>${deltaspike.version}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -164,6 +175,11 @@
                                     <artifactId>eclipselink</artifactId>
                                     <version>${eclipselink.version}</version>
                                 </artifactItem>
+                                <dependency>
+                                    <groupId>org.eclipse.persistence</groupId>
+                                    <artifactId>org.eclipse.persistence.moxy</artifactId>
+                                    <version>${eclipselink.version}</version>
+                                </dependency>
                                 <artifactItem>
                                     <groupId>org.postgresql</groupId>
                                     <artifactId>postgresql</artifactId>
@@ -190,11 +206,6 @@
                                     <groupId>com.google.guava</groupId>
                                     <artifactId>guava</artifactId>
                                     <version>${guava.version}</version>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.codehaus.jettison</groupId>
-                                    <artifactId>jettison</artifactId>
-                                    <version>${jettison.version}</version>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.javassist</groupId>

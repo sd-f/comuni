@@ -1,11 +1,14 @@
 /*
  */
-package foundation.softwaredesign.comuni.lib.rest;
+package foundation.softwaredesign.comuni.home.rest.config;
 
+import foundation.softwaredesign.comuni.lib.boundary.AbstractSentence;
+import foundation.softwaredesign.comuni.lib.boundary.Answer;
+import foundation.softwaredesign.comuni.lib.boundary.Question;
+import foundation.softwaredesign.comuni.lib.rest.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -13,10 +16,6 @@ import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-
-import foundation.softwaredesign.comuni.lib.boundary.Answer;
-import foundation.softwaredesign.comuni.lib.boundary.Question;
-import foundation.softwaredesign.comuni.lib.boundary.annotation.Sentence;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,14 +33,17 @@ public class ReflectionJaxbContextResolver implements ContextResolver<JAXBContex
   @Context
   JAXBContext currentJaxbContext;
 
+  public ReflectionJaxbContextResolver() {
+  }
+
   @Override
   public JAXBContext getContext(Class<?> type) {
     List<Class<?>> classes = new ArrayList<>();
     Reflections reflections = new Reflections(Constants.BOUNDARY_PACKAGE_NAME);
 
     // all sentences
-    Set<Class<?>> annotated
-        = reflections.getTypesAnnotatedWith(Sentence.class);
+    Set<Class<? extends AbstractSentence>> annotated
+        = reflections.getSubTypesOf(AbstractSentence.class);
 
     // if master is incoming (Answer,Question) marshalling
     // if concrete type incoming then unmarshalling

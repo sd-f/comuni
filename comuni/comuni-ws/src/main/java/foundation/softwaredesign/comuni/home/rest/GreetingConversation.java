@@ -33,7 +33,7 @@ public class GreetingConversation {
     ProposingWelcome sentence = new ProposingWelcome(systemInformationService.getSystemInformation().getWelcomeMessage());
     Answer<ProposingWelcome> answer = new Answer<>();
     answer.addSentence(sentence);
-    answer.addPossibleQuestion(new Question("/what/is/your/name"));
+    answer.addPossibleQuestion(new Question("/home/what/is/your/name"));
     return answer;
   }
 
@@ -43,7 +43,7 @@ public class GreetingConversation {
     InformingAboutMyName sentence = new InformingAboutMyName(systemInformationService.getSystemInformation().getName());
     Answer<InformingAboutMyName> answer = new Answer<>();
     answer.addSentence(sentence);
-    answer.addPossibleQuestion(new Question("/hello/again"));
+    answer.addPossibleQuestion(new Question("/home/hello/again"));
     return answer;
   }
 

@@ -9,18 +9,15 @@ import javax.xml.bind.annotation.*;
  * @param <T>
  * @author Lucas Reeh <lreeh@tugraz.at>
  */
-@XmlRootElement
+@XmlRootElement(name = "answer")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Answer<T extends Serializable> implements Serializable {
+public class Answer<T extends AbstractSentence> implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @XmlElementWrapper(name = "sentences")
-  @XmlAnyElement
   public List<T> sentences = new ArrayList<>();
 
-  @XmlElementWrapper(name = "you-can")
-  @XmlAnyElement
+  @XmlElementWrapper(name = "youCanAsk")
   public List<Question> questions = new ArrayList<>();
 
   /**
