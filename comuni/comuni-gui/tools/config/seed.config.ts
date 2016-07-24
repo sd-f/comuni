@@ -3,6 +3,8 @@ import { argv } from 'yargs';
 
 import { Environments, InjectableDependency } from './seed.config.interfaces';
 
+const proxy = require('http-proxy-middleware');
+
 /**
  * The enumeration of available environments.
  * @type {Environments}
@@ -423,17 +425,36 @@ export class SeedConfig {
      * @type {any}
      */
     'browser-sync': {
-      middleware: [require('connect-history-api-fallback')({ index: `${this.APP_BASE}index.html` })],
       port: this.PORT,
       startPath: this.APP_BASE,
-      open: argv['b'] ? false : true,
-      injectChanges: false,
       server: {
         baseDir: `${this.DIST_DIR}/empty/`,
+        middleware: [
+          proxy(['/api/**'], {
+            target: 'http://localhost:8080/api',
+            secure: true,
+            pathRewrite: {'^/api/': '/'},
+            logLevel: 'debug',
+            changeOrigin: true,
+            onProxyRes: function (proxyRes:any, req:any, res:any) {
+              var oldCookies = proxyRes.headers['set-cookie'];
+              if (oldCookies) {
+                if (oldCookies[0]) {
+                  proxyRes.headers['set-cookie'] = oldCookies[0].replace(/secure/g, "").replace(/Secure/g, "");
+                }
+              }
+            }
+            ,
+            onProxyReq: function (proxyReq:any, req:any, res:any) {
+              proxyReq.setHeader('referer', 'http://localhost:5555');
+            }
+          }),
+          require('connect-history-api-fallback')({index: `${this.APP_BASE}index.html`})
+        ],
         routes: {
           [`${this.APP_BASE}${this.APP_DEST}`]: this.APP_DEST,
           [`${this.APP_BASE}node_modules`]: 'node_modules',
-          [`${this.APP_BASE.replace(/\/$/, '')}`]: this.APP_DEST
+          [`${this.APP_BASE.replace(/\/$/,'')}`]: this.APP_DEST
         }
       }
     },

@@ -4,8 +4,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-app_3_1.xsd">
 
-    <display-name>Comuni Start Conversion</display-name>
-    <description>Comuni Start Conversion</description>
+    <display-name>Comuni Conversions</display-name>
+    <description>Comuni Conversions</description>
     <distributable/>
 
 </web-app>

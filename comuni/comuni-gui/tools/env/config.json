@@ -1,12 +1,12 @@
 {
   "dev": {
-    "API": "http://localhost:8080/"
+    "API": "http://comuni.home"
   },
   "prod": {
-    "API": "https://prod.com"
+    "API": "https://comuni.home"
   },
   "staging": {
-    "API": "https://staging.com"
+    "API": "https://comuni.home"
   }
 }
 

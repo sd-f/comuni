@@ -34,7 +34,8 @@
         <tomee.classifier>webprofile</tomee.classifier>
         <!-- java ee -->
         <ee.version>7.0</ee.version>
-        <ee.jsr-api.version>1.1.1</ee.jsr-api.version>
+        <!-- jettison -->
+        <jettison.version>1.3.8</jettison.version>
         <!-- liquibase -->
         <liquibase.version>3.4.0</liquibase.version>
         <!-- liquibase extensions -->
@@ -57,6 +58,8 @@
         <cobertura.version>2.7</cobertura.version>
         <!-- sonar -->
         <sonar.maven.plugin.version>3.0.1</sonar.maven.plugin.version>
+        <!-- javassist -->
+        <javassist.plugin.version>3.20.0-GA</javassist.plugin.version>
     </properties>
 
     <modules>
@@ -163,19 +166,12 @@
                 <artifactId>logback-core</artifactId>
                 <version>${logback.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
                 <version>${ee.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <dependency>
-                <groupId>javax.ws.rs</groupId>
-                <artifactId>jsr311-api</artifactId>
-                <version>${ee.jsr-api.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.reflections</groupId>
                 <artifactId>reflections</artifactId>
@@ -186,7 +182,6 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>eclipselink</artifactId>
@@ -211,6 +206,16 @@
                 <groupId>com.mattbertolini</groupId>
                 <artifactId>liquibase-slf4j</artifactId>
                 <version>${liquibase.slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jettison</groupId>
+                <artifactId>jettison</artifactId>
+                <version>${jettison.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.plugin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

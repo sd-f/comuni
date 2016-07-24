@@ -21,7 +21,7 @@
     <description>comuni start conversation app</description>
 
     <properties>
-        <context.path>comuni-conversations</context.path>
+        <context.path>api</context.path>
         <tomee.libs.dir>${project.build.directory}/apache-tomee-libs</tomee.libs.dir>
     </properties>
 
@@ -191,13 +191,16 @@
                                     <artifactId>guava</artifactId>
                                     <version>${guava.version}</version>
                                 </artifactItem>
-
                                 <artifactItem>
                                     <groupId>org.codehaus.jettison</groupId>
                                     <artifactId>jettison</artifactId>
-                                    <version>1.3.7</version>
+                                    <version>${jettison.version}</version>
                                 </artifactItem>
-
+                                <artifactItem>
+                                    <groupId>org.javassist</groupId>
+                                    <artifactId>javassist</artifactId>
+                                    <version>${javassist.plugin.version}</version>
+                                </artifactItem>
                                 <artifactItem>
                                     <groupId>ch.qos.logback</groupId>
                                     <artifactId>logback-classic</artifactId>
