@@ -1,12 +1,12 @@
 {
   "dev": {
-    "API": "http://comuni.home"
+    "API": "http://localhost:5555/api"
   },
   "prod": {
-    "API": "https://comuni.home"
+    "API": "https://softwaredesign.foundation/comuni/api"
   },
   "staging": {
-    "API": "https://comuni.home"
+    "API": "https://softwaredesign.foundation/comuni/api"
   }
 }
 

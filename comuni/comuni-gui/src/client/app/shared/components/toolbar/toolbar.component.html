@@ -2,10 +2,14 @@
   <button md-mini-fab>
     <md-icon>menu</md-icon>
   </button>
-  <span class="sd-toolbar-title-span">Home</span>
+  <span class="sd-toolbar-title-span"
+        md-tooltip="informingAboutMyName.myNameIs"
+        >
+    Home
+  </span>
   <span class="sd-toolbar-filler"></span>
   <button md-mini-fab>
-    <md-icon>refresh</md-icon>
+    <md-icon (click)="refresh()">refresh</md-icon>
   </button>
   <button md-mini-fab>
     <md-icon>apps</md-icon>

@@ -8,12 +8,26 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .centered-loading {
+      position: fixed; /* or absolute */
+      top: 25%;
+      left: 50%;
+      margin-left: -148px;
+      font-size: 1.5em;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+  </style>
   <!-- inject:css -->
   <!-- endinject -->
 </head>
 <body>
 
-  <sd-app>Loading...</sd-app>
+  <cm-app>
+    <div class="centered-loading">
+      <img src="img/spin.gif" alt="Loading...">
+    </div>
+  </cm-app>
 
   <script>
   // Fixes undefined module function in SystemJS bundle
