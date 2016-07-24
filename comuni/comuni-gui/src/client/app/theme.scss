@@ -1,9 +1,7 @@
 @import '@angular2-material/core/style/theme-functions';
 @import '@angular2-material/core/style/palette';
 
-/** theme */
-
-// Person creating a theme writes variables like this:
+// theme
 $md-is-dark-theme: false;
 
 $md-primary: md-palette($md-indigo, 500, 100, 700, $md-contrast-palettes);

@@ -1,5 +1,5 @@
 <md-toolbar class="main-toolbar">
-  <button md-mini-fab>
+  <button md-mini-fab class="main-toolbar-button">
     <md-icon>menu</md-icon>
   </button>
   <span class="sd-toolbar-title-span"
@@ -11,13 +11,13 @@
   <span *ngIf="informingAboutMyName" class="version-info">
     [ {{informingAboutMyName.myNameIs}} ]
   </span>
-  <button md-mini-fab>
+  <button md-mini-fab class="main-toolbar-button">
     <md-icon (click)="refresh()">refresh</md-icon>
   </button>
-  <button md-mini-fab>
+  <button md-mini-fab class="main-toolbar-button">
     <md-icon>apps</md-icon>
   </button>
-  <button md-mini-fab>
+  <button md-mini-fab class="main-toolbar-button">
     <md-icon>face</md-icon>
   </button>
 </md-toolbar>
