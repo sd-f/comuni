@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   moduleId: module.id,
   selector: 'cm-content',
   templateUrl: 'content.component.html',
-  styleUrls: ['../../theme.css', 'content.component.css'],
+  styleUrls: ['../../../theme.css', 'content.component.css'],
   directives: [],
   providers: [],
   viewProviders: [],

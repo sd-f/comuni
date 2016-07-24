@@ -7,13 +7,11 @@ import {InformingAboutMyName} from '../../../home/conversation/InformingAboutMyN
 import {WHAT_IS_YOUR_NAME} from '../../../home/conversation/HomeQuestions';
 import {Question} from '../../conversation/Question';
 
-
-
 @Component({
   moduleId: module.id,
   selector: 'cm-toolbar',
   templateUrl: 'toolbar.component.html',
-  styleUrls: ['../../theme.css', 'toolbar.component.css'],
+  styleUrls: ['../../../theme.css', 'toolbar.component.css'],
   directives: [MdToolbar, MdIcon, MdButton , MdAnchor],
   providers: [Location, ConversationService],
   viewProviders: [MdIconRegistry],
