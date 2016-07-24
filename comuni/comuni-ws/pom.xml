@@ -11,27 +11,84 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>foundation.softwaredesign.comuni</groupId>
     <artifactId>comuni-ws</artifactId>
 
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
 
-    <name>${project.artifactId} (Conversations)</name>
+    <name>${project.artifactId} (Start Conversations)</name>
 
-    <description>conversation apps for comuni</description>
+    <description>comuni start conversation app</description>
 
-    <modules>
-        <!-- lib and boundary classes -->
-        <module>comuni-ws-lib</module>
+    <properties>
+        <context.path>comuni-conversations</context.path>
+        <tomee.libs.dir>${project.build.directory}/apache-tomee-libs</tomee.libs.dir>
+    </properties>
 
-        <!-- configuration pom for app modules -->
-        <module>comuni-ws-config</module>
-		
-		<!-- conversations -->
-        <module>comuni-ws-start</module>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
-    </modules>
+        <!-- comuni rest library -->
+        <dependency>
+            <groupId>foundation.softwaredesign.comuni-ws</groupId>
+            <artifactId>comuni-ws-lib</artifactId>
+            <version>${comuni.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <!--            <scope>provided</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <!--            <scope>provided</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-jpa-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <!--            <scope>provided</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+    </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>../src/main/config</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}/config</targetPath>
+            </resource>
+        </resources>
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
@@ -39,10 +96,129 @@
             </testResource>
             <!-- adding central logging config -->
             <testResource>
-                <directory>../../src/main/logging</directory>
+                <directory>../src/main/logging</directory>
                 <filtering>true</filtering>
             </testResource>
         </testResources>
+        <plugins>
+            <plugin>
+                <!-- Attention new groupId -->
+                <groupId>org.apache.tomee.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>${tomee.version}</version>
+                <configuration>
+                    <context>${context.path}</context>
+                    <path>${project.build.directory}/${project.build.finalName}.war</path>
+                    <config>${project.build.directory}/config/tomee</config>
+                    <tomeeVersion>${tomee.version}</tomeeVersion>
+                    <tomeeClassifier>${tomee.classifier}</tomeeClassifier>
+                    <removeDefaultWebapps>true</removeDefaultWebapps>
+                    <removeTomeeWebapp>true</removeTomeeWebapp>
+                    <reloadOnUpdate>true</reloadOnUpdate>
+                    <lib>${tomee.libs.dir}</lib>
+                    <classpaths>
+                        <classpath>${tomee.libs.dir}/slf4j-api-${slf4j.version}.jar</classpath>
+                        <classpath>${tomee.libs.dir}/jul-to-slf4j-${slf4j.version}.jar</classpath>
+                        <classpath>${tomee.libs.dir}/logback-classic-${logback.version}.jar</classpath>
+                        <classpath>${tomee.libs.dir}/logback-core-${logback.version}.jar</classpath>
+                        <classpath>${project.build.directory}/apache-tomee/conf/logging</classpath>
+                    </classpaths>
+                    <libs>
+                        <!-- remove unsed libs -->
+                        <lib>remove:myfaces-</lib>
+                        <lib>remove:slf4j-jdk14-</lib>
+                    </libs>
+                    <synchronization>
+                        <extensions>
+                            <extension>.class</extension>
+                            <extension>.html</extension>
+                            <extension>.xhtml</extension>
+                            <extension>.js</extension>
+                            <extension>.css</extension>
+                            <extension>.png</extension>
+                            <extension>.gif</extension>
+                            <extension>.jpg</extension>
+                            <extension>.json</extension>
+                            <extension>.xml</extension>
+                            <!-- if you want to update each time you build with mvn compile -->
+                        </extensions>
+                    </synchronization>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-libs</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${tomee.libs.dir}</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.eclipse.persistence</groupId>
+                                    <artifactId>eclipselink</artifactId>
+                                    <version>${eclipselink.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.postgresql</groupId>
+                                    <artifactId>postgresql</artifactId>
+                                    <version>${postgres.version}</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>org.slf4j</groupId>
+                                    <artifactId>slf4j-api</artifactId>
+                                    <version>${slf4j.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.slf4j</groupId>
+                                    <artifactId>jul-to-slf4j</artifactId>
+                                    <version>${slf4j.version}</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>org.reflections</groupId>
+                                    <artifactId>reflections</artifactId>
+                                    <version>${reflections.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.google.guava</groupId>
+                                    <artifactId>guava</artifactId>
+                                    <version>${guava.version}</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>org.codehaus.jettison</groupId>
+                                    <artifactId>jettison</artifactId>
+                                    <version>1.3.7</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>ch.qos.logback</groupId>
+                                    <artifactId>logback-classic</artifactId>
+                                    <version>${logback.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>ch.qos.logback</groupId>
+                                    <artifactId>logback-core</artifactId>
+                                    <version>${logback.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>ch.qos.logback</groupId>
+                                    <artifactId>logback-access</artifactId>
+                                    <version>${logback.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

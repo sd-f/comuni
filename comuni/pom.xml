@@ -62,6 +62,8 @@
     <modules>
         <!-- database -->
         <module>comuni-database</module>
+        <!-- backend library -->
+        <module>comuni-ws-lib</module>
         <!-- conversations -->
         <module>comuni-ws</module>
     </modules>
