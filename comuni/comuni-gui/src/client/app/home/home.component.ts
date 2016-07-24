@@ -5,13 +5,12 @@ import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 
-import {ConversationService} from '../shared/conversation/conversation.service';
-import {Question} from '../shared/conversation/Question';
+import {ConversationService,Question,Answer} from '../shared/conversation/index';
+import {ContentComponent} from '../shared/index';
+
 import {HELLO} from './conversation/HomeQuestions';
-import {Answer} from '../shared/conversation/Answer';
 import {ProposingWelcome} from './conversation/ProposingWelcome';
 import {InformingAboutMyName} from './conversation/InformingAboutMyName';
-import {ContentComponent} from '../shared/components/content/content.component';
 
 @Component({
   moduleId: module.id,
