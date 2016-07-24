@@ -1,4 +1,4 @@
-@import '../../theme';
+@import '../../../theme';
 @import "@angular2-material/core/style/variables";
 @import '@angular2-material/core/style/palette';
 
@@ -18,4 +18,10 @@
 .main-toolbar button {
   box-shadow: none;
   background-color: md-color($md-primary);
+}
+
+
+.version-info {
+  font-size: 0.75em;
+  color: white;
 }

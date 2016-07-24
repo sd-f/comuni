@@ -52,20 +52,6 @@ export class HomeComponent implements OnInit {
           .subscribe(
             answer => {
               this.informingAboutMyName = answer.sentences[0];
-              this.askForNameAgain(answer);
-            }
-          );
-    }
-  }
-
-  private askForNameAgain(answer: Answer<InformingAboutMyName>): void {
-    let question: Question = answer.youCanAsk.questions[0];
-    if (question) {
-      this.askForNameAgainService
-          .ask(question)
-          .subscribe(
-            answer => {
-              this.informingAboutMyName = answer.sentences[0];
             }
           );
     }

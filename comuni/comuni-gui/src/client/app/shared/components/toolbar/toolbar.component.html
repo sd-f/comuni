@@ -8,6 +8,9 @@
     Home
   </span>
   <span class="sd-toolbar-filler"></span>
+  <span *ngIf="informingAboutMyName" class="version-info">
+    [ {{informingAboutMyName.myNameIs}} ]
+  </span>
   <button md-mini-fab>
     <md-icon (click)="refresh()">refresh</md-icon>
   </button>
