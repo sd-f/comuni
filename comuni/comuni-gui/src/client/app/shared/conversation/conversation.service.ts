@@ -9,8 +9,6 @@ import {Config} from '../config/env.config';
 @Injectable()
 export class ConversationService<T> {
 
-  private _answer: T;
-
   private _request: Observable<Answer<T>>;
 
   constructor(private http: Http) {}

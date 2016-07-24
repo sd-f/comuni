@@ -440,7 +440,7 @@ export class SeedConfig {
               var oldCookies = proxyRes.headers['set-cookie'];
               if (oldCookies) {
                 if (oldCookies[0]) {
-                  proxyRes.headers['set-cookie'] = oldCookies[0].replace(/secure/g, "").replace(/Secure/g, "");
+                  proxyRes.headers['set-cookie'] = oldCookies[0].replace(/secure/g, '').replace(/Secure/g, '');
                 }
               }
             }
